@@ -9,13 +9,6 @@ General::~General() {
     
 }
 
-Move General::createMove(Region from, Region to, int armies)
-{
-	Move dothis;
-	dothis.from = from;
-	dothis.to = to;
-	dothis.armies = armies;
-}
 
 int General::pickStartingRegions(std::vector<int> pickfrom) {
 	//calculate front
@@ -37,15 +30,25 @@ std::vector<Move> General::getDefense() {
 }
 
 
-std::vector<Move> General::getDeployment() {
+void General::getDeployment() {
 
 	//Calculate the deloyment. Again, isn't this done based on Defense, not because of Defense.
-	return std::vector<Move>();
+
+	vector<Region> myRegions= bot->getOwnedRegions();
+
+
+
+
+
+	return;
 }
 
 
 void General::calculateTurn() {
 	//This call attack and deffense and then combines the moves?
+	vector<Move> moves = generateAttacks();
+
+	sendToEngineAttack(moves);
 }
 
 
@@ -82,7 +85,7 @@ vector<Move> General::generateAttacks()
 			//you'll push to moves this way. Every other way seems to seg fault
 			moves[counter].to = my;
 			moves[counter].from = n;
-			moves[counter++].armies = n.getArmies();
+			moves[counter++].armies = 2 * n.getArmies();
 		}
 	}
 
@@ -101,18 +104,22 @@ vector<Move> General::generateAttacks()
 		}
 	}
 
-	for(Move r: moves)
-	{
-		cerr  << "move: " << r.from.id;
-		cerr << endl;
-	}
-	if(!moves.size())
-	{
-		cerr << "empty" << endl;
-	}
 
 	return moves;
 	//return moves;
+}
+
+void General::sendToEngineAttack(vector<Move> attacks)
+{
+	if(attacks.empty())
+		return;
+
+	for(Move m: attacks)
+	{
+		cout << bot->botName << " attack/transfer " << m.from.id << " " << m.to.id
+				<< " " << m.armies << ", ";
+	}
+	cout << endl;
 }
 
 

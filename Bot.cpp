@@ -37,12 +37,11 @@ void Bot::pickStartingRegion()
 
 void Bot::placeArmies()
 {
-	//general->getAttack();
-	//general->generateMoves();
-
-	cerr << "come on!" << endl;
-
-	general->generateAttacks();
+	for(Region r: getOwnedRegions())
+	{
+		regionsLeftInSuper(r);
+	}
+	cerr << endl;
 
 	// START HERE!
 	unsigned region = std::rand() % ownedRegions.size();
@@ -53,34 +52,8 @@ void Bot::placeArmies()
 
 void Bot::makeMoves()
 {
-	// START HERE!
-	/// Output No moves when you have no time left or do not want to commit any moves.
-	// std::cout << "No moves "  << std::endl;
-	/// Anatomy of a single move
-	//  std::cout << botName << " attack/transfer " << from << " " << to << " "<< armiesMoved;
-	/// When outputting multiple moves they must be seperated by a comma
-	std::vector<std::string> moves;
-	for (size_t j = 0; j < ownedRegions.size(); ++j)
-	{
-		std::stringstream move;
-		int i = ownedRegions[j];
-		if (regions[i].getArmies() <= 1)
-			continue;
+	general->calculateTurn();
 
-		int target = regions[i].getNeighbor(std::rand() % regions[i].getNbNeighbors());
-		// prefer enemy regions
-		for ( unsigned k = 0; k < 5; ++k)
-		{
-			if(regions[target].getOwner() != ME) break;
-			target = regions[i].getNeighbor(std::rand() % regions[i].getNbNeighbors());
-		}
-		move << botName << " attack/transfer " << i << " "
-				<< target << " "
-				<< (regions[i].getArmies() - 1);
-		moves.push_back(move.str());
-	}
-
-	std::cout << string::join(moves) << std::endl;
 }
 
 void Bot::addRegion(const unsigned& noRegion, const unsigned& noSuperRegion)
@@ -166,8 +139,6 @@ void Bot::opponentMovement(const unsigned &noRegion, const unsigned &toRegion, c
 
 	// TODO: STUB
 }
-
-
 
 void Bot::startDelay(const int& delay)
 {
@@ -342,6 +313,23 @@ vector<Region> Bot::getAdjacentPlayer(Player player) {
 
 
 	return ret;
+}
+
+int Bot::regionsLeftInSuper(Region place)
+{
+	int super = place.superRegion;
+
+	int counter = 0;
+
+	for(int r: superRegions[super].regions) {
+		if(regions[r].owner != ME)
+			counter++;
+	}
+
+	cerr << "num: " << counter << "  ";
+
+	return counter;
+
 }
 
 

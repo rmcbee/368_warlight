@@ -100,19 +100,23 @@ public:
 
 	vector<Region> getNeighbors(Player player, Region place);
 
-	std::vector<Region> regions;
-	std::vector<SuperRegion> superRegions;
-
 	vector<Region> getOwnedRegions();
 
 	vector<Region> getwastelands();
 
 	vector<Region> getstartingRegionsreceived();
 
+	int regionsLeftInSuper(Region place);
+
 	General* general;
+
 	void doNothing(void);
 
 	std::string botName;
+	std::vector<Region> regions;
+	std::vector<SuperRegion> superRegions;
+
+
 
 private:
 	std::ifstream in;

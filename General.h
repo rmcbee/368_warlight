@@ -3,13 +3,15 @@
 
 #include <vector>
 
-#include "Attack.h"
-#include "Defense.h"
+
 #include "Move.h"
 #include <iostream>
 #include <fstream>
+#include "MoveGenerator.h"
 
 #include "Bot.h"
+#include <set>
+
 
 using namespace std;
 
@@ -40,7 +42,7 @@ public:
     /** std::vector<Move> getDeployment();
 	 * Returns the calculated deployment for this turn.
      */  
-    std::vector<Move> getDeployment();
+    void getDeployment();
         
     /** void calculateTurn(float time);
      *  This function prioritizes different troop placements and
@@ -51,12 +53,9 @@ public:
 
     Bot* bot;
 
-
-
     vector<Move> generateAttacks();
 
-
-    Move createMove(Region from, Region to, int armies);
+    void sendToEngineAttack(vector<Move> attacks);
 
 private:
     // stop making class variables for attack and defense
