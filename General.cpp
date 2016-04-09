@@ -1,4 +1,6 @@
 #include "General.h"
+#include <string>
+#include "tools/StringManipulation.h"
 
 using namespace std;
 General::General(Bot* x) {
@@ -34,11 +36,29 @@ void General::getDeployment() {
 
 	//Calculate the deloyment. Again, isn't this done based on Defense, not because of Defense.
 
+	int lowestSuper = 100;
+	Region regionAddingTo;
+	int temp;
+
 	vector<Region> myRegions= bot->getOwnedRegions();
 
+	for(Region r: myRegions)
+	{
+		temp = bot->regionsLeftInSuper(bot->superRegions[r.superRegion]);
+
+		if(temp < lowestSuper && temp != 0)
+		{
+			lowestSuper = temp;
+			regionAddingTo = r;
+		}
 
 
+	}
 
+	std::cout << bot->botName << " place_armies " << regionAddingTo.id << " " << bot->armiesLeft
+	<< std::endl;
+
+	bot->addArmies(regionAddingTo.id, bot->armiesLeft);
 
 	return;
 }
@@ -47,6 +67,7 @@ void General::getDeployment() {
 void General::calculateTurn() {
 	//This call attack and deffense and then combines the moves?
 	vector<Move> moves = generateAttacks();
+
 
 	sendToEngineAttack(moves);
 }
@@ -66,43 +87,56 @@ vector<Move> General::generateAttacks()
 	vector<Move> moves;
 
 	// Get adjacent regions depending on owner.
-	vector<Region> adjacentOpponent = bot->getAdjacentPlayer(ENEMY);
+	vector<Region> myRegions = bot->getRegionsOwnedBy(ME);
 
-	vector<Region> adjacentNeutral = bot->getAdjacentPlayer(NEUTRAL);
 
 
 
 
 	// Look at potential enemy attacks
-	for (Region n : adjacentOpponent) {
-		vector<Region> myregions = bot->getNeighbors(ME, n);
-		for (Region my : myregions) {
+	for (Region n : myRegions) {
 
 
-			//Need to push moves this way to prevent seg fault
-			moves.push_back(Move());
+		if(n.armies == 1)
+			continue;
 
-			//you'll push to moves this way. Every other way seems to seg fault
-			moves[counter].to = my;
-			moves[counter].from = n;
-			moves[counter++].armies = 2 * n.getArmies();
+		vector<Region> Nb = bot->NbInSuperRegion(n);
+
+		if(Nb.empty())
+		{
+			Nb = bot->getAllNeighbors(n);
+
+			if(Nb.empty())
+			{
+				Nb = bot->getNeighbors(ME, n);
+			}
 		}
+
+		Region attackingRegion;
+
+		for(Region r: Nb)
+		{
+			attackingRegion = r;
+
+			if(attackingRegion.owner == ENEMY)
+				break;
+		}
+
+
+		//Need to push moves this way to prevent seg fault
+		moves.push_back(Move());
+
+		//you'll push to moves this way. Every other way seems to seg fault
+		moves[counter].to = attackingRegion;
+		moves[counter].from = n;
+		moves[counter++].armies = n.getArmies() - 1;
+
+
+
+
 	}
 
-	// Look at potential neutral attacks
-	for (Region n : adjacentNeutral) {
 
-		vector<Region> myregions = bot->getNeighbors(ME, n);
-
-		for (Region my : myregions) {
-
-			moves.push_back(Move());
-
-			moves[counter].to = my;
-			moves[counter].from = n;
-			moves[counter++].armies = n.getArmies();
-		}
-	}
 
 
 	return moves;
@@ -114,12 +148,21 @@ void General::sendToEngineAttack(vector<Move> attacks)
 	if(attacks.empty())
 		return;
 
+	std::vector<std::string> attackMoves;
+	std::stringstream attackMove;
+
 	for(Move m: attacks)
 	{
-		cout << bot->botName << " attack/transfer " << m.from.id << " " << m.to.id
-				<< " " << m.armies << ", ";
+
+			attackMove << bot->botName << " attack/transfer " << m.from.id << " " << m.to.id
+				<< " " << m.armies << ",";
+
+
+
+		attackMoves.push_back(attackMove.str());
+
 	}
-	cout << endl;
+	std::cout << string::join(attackMoves) << std::endl;
 }
 
 

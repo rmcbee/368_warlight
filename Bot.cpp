@@ -31,23 +31,15 @@ void Bot::playGame()
 
 void Bot::pickStartingRegion()
 {
+
+
 	// START HERE!
 	std::cout << startingRegionsreceived.front() << std::endl;
 }
 
 void Bot::placeArmies()
 {
-	for(Region r: getOwnedRegions())
-	{
-		regionsLeftInSuper(r);
-	}
-	cerr << endl;
-
-	// START HERE!
-	unsigned region = std::rand() % ownedRegions.size();
-	std::cout << botName << " place_armies " << ownedRegions[region] << " " << armiesLeft
-			<< std::endl;
-	addArmies(ownedRegions[region], armiesLeft);
+	general->getDeployment();
 }
 
 void Bot::makeMoves()
@@ -223,6 +215,22 @@ vector<Region> Bot::getNeighbors(Player player, Region place)
 
 	for (int i = 0; i < place.getNbNeighbors(); i++) {
 
+		if(regions[place.neighbors[i]].owner == player)
+			ret.push_back(regions[place.neighbors[i]]);
+
+	}
+
+
+	return ret;
+}
+
+vector<Region> Bot::getAllNeighbors(Region place)
+{
+	vector<Region> ret;
+
+	for (int i = 0; i < place.getNbNeighbors(); i++) {
+
+		if(regions[place.neighbors[i]].owner != ME)
 			ret.push_back(regions[place.neighbors[i]]);
 
 	}
@@ -315,21 +323,37 @@ vector<Region> Bot::getAdjacentPlayer(Player player) {
 	return ret;
 }
 
-int Bot::regionsLeftInSuper(Region place)
+
+
+
+/* tested */
+int Bot::regionsLeftInSuper(SuperRegion place)
 {
-	int super = place.superRegion;
 
 	int counter = 0;
 
-	for(int r: superRegions[super].regions) {
+	for(int r: place.regions) {
 		if(regions[r].owner != ME)
 			counter++;
 	}
 
-	cerr << "num: " << counter << "  ";
-
 	return counter;
 
+}
+
+vector<Region> Bot::NbInSuperRegion(Region place)
+{
+	vector<Region> ret;
+
+	for (int i = 0; i < place.getNbNeighbors(); i++) {
+
+		if(regions[place.neighbors[i]].superRegion == place.superRegion && regions[place.neighbors[i]].owner != ME)
+			ret.push_back(regions[place.neighbors[i]]);
+
+	}
+
+
+	return ret;
 }
 
 

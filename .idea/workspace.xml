@@ -12,12 +12,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f2ad5d5-5593-4e2b-bae2-76a04e46fdf8" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Attack.cpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Attack.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Attack.o" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Defense.cpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Defense.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Defense.o" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bot.o" afterPath="$PROJECT_DIR$/Bot.o" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/General.o" afterPath="$PROJECT_DIR$/General.o" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bot" afterPath="$PROJECT_DIR$/bot" />
@@ -25,9 +19,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bot.cpp" afterPath="$PROJECT_DIR$/Bot.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bot.h" afterPath="$PROJECT_DIR$/Bot.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/General.cpp" afterPath="$PROJECT_DIR$/General.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/General.h" afterPath="$PROJECT_DIR$/General.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SuperRegion.h" afterPath="$PROJECT_DIR$/SuperRegion.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vbos-wl2_engine-8b13982d8890/err.txt" afterPath="$PROJECT_DIR$/vbos-wl2_engine-8b13982d8890/err.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vbos-wl2_engine-8b13982d8890/out.txt" afterPath="$PROJECT_DIR$/vbos-wl2_engine-8b13982d8890/out.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vbos-wl2_engine-8b13982d8890/run_simulate" afterPath="$PROJECT_DIR$/vbos-wl2_engine-8b13982d8890/run_simulate" />
     </list>
     <ignored path="warlight-starterbot.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,81 +41,47 @@
     <favorites_list name="warlight-starterbot" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.49374023">
+    <splitter split-orientation="horizontal" split-proportion="0.58204895">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Bot.cpp" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Bot.cpp" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Bot.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.6331522">
-                  <caret line="328" column="39" selection-start-line="328" selection-start-column="39" selection-end-line="328" selection-end-column="39" />
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="349" column="75" selection-start-line="349" selection-start-column="75" selection-end-line="349" selection-end-column="75" />
                   <folding>
                     <element signature="e#7#26#0" expanded="true" />
                     <element signature="e#56#72#0" expanded="true" />
+                    <element signature="e#179#312#0" expanded="false" />
                     <element signature="e#332#378#0" expanded="false" />
-                    <element signature="e#380#490#0" expanded="false" />
-                    <element signature="e#877#1134#0" expanded="false" />
-                    <element signature="e#1135#1300#0" expanded="false" />
-                    <element signature="e#1301#1386#0" expanded="false" />
-                    <element signature="e#1387#1609#0" expanded="false" />
-                    <element signature="e#1611#1677#0" expanded="false" />
-                    <element signature="e#1678#1760#0" expanded="false" />
-                    <element signature="e#1761#1833#0" expanded="false" />
-                    <element signature="e#1834#1908#0" expanded="false" />
-                    <element signature="e#1909#1995#0" expanded="false" />
-                    <element signature="e#1996#2074#0" expanded="false" />
-                    <element signature="e#2076#2146#0" expanded="false" />
-                    <element signature="e#2148#2251#0" expanded="false" />
-                    <element signature="e#2253#2364#0" expanded="false" />
-                    <element signature="e#2365#2535#0" expanded="false" />
-                    <element signature="e#2536#2747#0" expanded="false" />
-                    <element signature="e#2749#2859#0" expanded="false" />
-                    <element signature="e#2860#2924#0" expanded="false" />
-                    <element signature="e#2925#3193#0" expanded="false" />
-                    <element signature="e#3195#3570#0" expanded="false" />
-                    <element signature="e#3571#3713#0" expanded="false" />
-                    <element signature="e#3714#4674#0" expanded="false" />
-                    <element signature="e#4676#4732#0" expanded="false" />
-                    <element signature="e#4734#4953#0" expanded="false" />
-                    <element signature="e#5144#5323#0" expanded="false" />
-                    <element signature="e#5325#5544#0" expanded="false" />
-                    <element signature="e#5546#5743#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="General.cpp" pinned="false" current-in-tab="false">
+          <file leaf-file-name="General.cpp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/General.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+                <state vertical-scroll-proportion="1.375">
+                  <caret line="111" column="13" selection-start-line="111" selection-start-column="13" selection-end-line="111" selection-end-column="13" />
                   <folding>
-                    <element signature="e#114#223#0" expanded="false" />
-                    <element signature="e#224#403#0" expanded="false" />
-                    <element signature="e#405#560#0" expanded="false" />
-                    <element signature="e#927#1049#0" expanded="false" />
-                    <element signature="e#2083#2325#0" expanded="false" />
+                    <element signature="e#0#20#0" expanded="true" />
+                    <element signature="e#170#279#0" expanded="false" />
+                    <element signature="e#280#459#0" expanded="false" />
+                    <element signature="e#461#616#0" expanded="false" />
+                    <element signature="e#1231#1397#0" expanded="false" />
+                    <element signature="e#1400#1522#0" expanded="false" />
+                    <element signature="e#2430#2836#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="run_simulate" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/vbos-wl2_engine-8b13982d8890/run_simulate">
+          <file leaf-file-name="StringManipulation.h" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/tools/StringManipulation.h">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/main.cpp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -140,16 +100,6 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="main.h" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/main.h">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
         </leaf>
       </split-first>
       <split-second>
@@ -157,8 +107,8 @@
           <file leaf-file-name="Bot.h" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Bot.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-7.5172415">
-                  <caret line="57" column="5" selection-start-line="57" selection-start-column="5" selection-end-line="58" selection-end-column="4" />
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="112" column="19" selection-start-line="112" selection-start-column="19" selection-end-line="112" selection-end-column="19" />
                   <folding>
                     <element signature="e#36#55#0" expanded="true" />
                   </folding>
@@ -169,8 +119,8 @@
           <file leaf-file-name="SuperRegion.h" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/SuperRegion.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-6.206897">
-                  <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="29" />
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -188,6 +138,16 @@
               </provider>
             </entry>
           </file>
+          <file leaf-file-name="run_simulate" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/vbos-wl2_engine-8b13982d8890/run_simulate">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.46875">
+                  <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="13" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file leaf-file-name="General.h" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/General.h">
               <provider selected="true" editor-type-id="text-editor">
@@ -198,11 +158,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="testmatch.game" pinned="false" current-in-tab="true">
+          <file leaf-file-name="testmatch.game" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/testgames/testmatch.game">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="23" selection-end-column="7" />
+                  <caret line="13" column="5" selection-start-line="0" selection-start-column="0" selection-end-line="268" selection-end-column="226" />
                   <folding />
                 </state>
               </provider>
@@ -228,13 +188,13 @@
         <option value="$PROJECT_DIR$/Region.cpp" />
         <option value="$PROJECT_DIR$/Attack.cpp" />
         <option value="$PROJECT_DIR$/testgames/testmatch.game" />
-        <option value="$PROJECT_DIR$/vbos-wl2_engine-8b13982d8890/run_simulate" />
         <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/SuperRegion.h" />
-        <option value="$PROJECT_DIR$/Bot.h" />
         <option value="$PROJECT_DIR$/General.h" />
-        <option value="$PROJECT_DIR$/General.cpp" />
+        <option value="$PROJECT_DIR$/vbos-wl2_engine-8b13982d8890/run_simulate" />
+        <option value="$PROJECT_DIR$/Bot.h" />
         <option value="$PROJECT_DIR$/Bot.cpp" />
+        <option value="$PROJECT_DIR$/General.cpp" />
       </list>
     </option>
   </component>
@@ -249,6 +209,31 @@
     <option name="y" value="24" />
     <option name="width" value="1301" />
     <option name="height" value="744" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>GeneralJavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>XPath</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>C/C++</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -283,12 +268,24 @@
               <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="warlight-starterbot" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="368_warlight" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/rmcbee/368_warlight/Bot.h" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.notifications" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RunManager" selected="Application.warlight_starterbot">
     <configuration default="true" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="warlight_starterbot" TARGET_NAME="warlight_starterbot" CONFIG_NAME="Debug" TEST_MODE="SUITE_TEST">
@@ -330,6 +327,9 @@
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="4f2ad5d5-5593-4e2b-bae2-76a04e46fdf8" name="Default" comment="" />
@@ -340,16 +340,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1301" height="744" extended-state="6" />
-    <editor active="true" />
+    <frame x="65" y="24" width="1301" height="744" extended-state="7" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.02112676" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.103286386" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44358578" sideWeight="0.5031299" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921174" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17928903" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38485315" sideWeight="0.4968701" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5579598" sideWeight="0.4968701" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921174" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -363,31 +363,47 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921174" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921174" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36012363" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.02112676" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44358578" sideWeight="0.5031299" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17928903" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19474497" sideWeight="0.4968701" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.02112676" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921174" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921174" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Bot.cpp</url>
+          <line>32</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -395,38 +411,112 @@
     <entry file="file://$PROJECT_DIR$/Bot.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+          <caret line="349" column="75" selection-start-line="349" selection-start-column="75" selection-end-line="349" selection-end-column="75" />
+          <folding>
+            <element signature="e#7#26#0" expanded="true" />
+            <element signature="e#56#72#0" expanded="true" />
+            <element signature="e#179#312#0" expanded="false" />
+            <element signature="e#332#378#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/General.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#170#279#0" expanded="false" />
+            <element signature="e#280#459#0" expanded="false" />
+            <element signature="e#461#616#0" expanded="false" />
+            <element signature="e#1231#1397#0" expanded="false" />
+            <element signature="e#1400#1522#0" expanded="false" />
+            <element signature="e#2430#2836#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/StringManipulation.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Region.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="21" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="21" />
+          <folding>
+            <element signature="e#6#24#0" expanded="true" />
+            <element signature="e#55#74#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bot.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="112" column="19" selection-start-line="112" selection-start-column="19" selection-end-line="112" selection-end-column="19" />
+          <folding>
+            <element signature="e#36#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SuperRegion.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Region.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+          <folding>
+            <element signature="e#41#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vbos-wl2_engine-8b13982d8890/run_simulate">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/General.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testgames/testmatch.game">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="5" selection-start-line="0" selection-start-column="0" selection-end-line="268" selection-end-column="226" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bot.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
           <caret line="318" column="18" selection-start-line="318" selection-start-column="18" selection-end-line="318" selection-end-column="18" />
           <folding>
             <element signature="e#7#26#0" expanded="true" />
             <element signature="e#56#72#0" expanded="true" />
+            <element signature="e#179#312#0" expanded="false" />
             <element signature="e#332#378#0" expanded="false" />
-            <element signature="e#380#490#0" expanded="false" />
-            <element signature="e#877#1134#0" expanded="false" />
-            <element signature="e#1135#1300#0" expanded="false" />
-            <element signature="e#1301#1386#0" expanded="false" />
-            <element signature="e#1387#1609#0" expanded="false" />
-            <element signature="e#1611#1677#0" expanded="false" />
-            <element signature="e#1678#1760#0" expanded="false" />
-            <element signature="e#1761#1833#0" expanded="false" />
-            <element signature="e#1834#1908#0" expanded="false" />
-            <element signature="e#1909#1995#0" expanded="false" />
-            <element signature="e#1996#2074#0" expanded="false" />
-            <element signature="e#2076#2146#0" expanded="false" />
-            <element signature="e#2148#2251#0" expanded="false" />
-            <element signature="e#2253#2364#0" expanded="false" />
-            <element signature="e#2365#2535#0" expanded="false" />
-            <element signature="e#2536#2747#0" expanded="false" />
-            <element signature="e#2749#2859#0" expanded="false" />
-            <element signature="e#2860#2924#0" expanded="false" />
-            <element signature="e#2925#3193#0" expanded="false" />
-            <element signature="e#3195#3570#0" expanded="false" />
-            <element signature="e#3571#3713#0" expanded="false" />
-            <element signature="e#3714#4674#0" expanded="false" />
-            <element signature="e#4676#4732#0" expanded="false" />
-            <element signature="e#4734#4953#0" expanded="false" />
-            <element signature="e#5144#5323#0" expanded="false" />
-            <element signature="e#5325#5544#0" expanded="false" />
-            <element signature="e#5546#5743#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -436,11 +526,13 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding>
-            <element signature="e#114#223#0" expanded="false" />
-            <element signature="e#224#403#0" expanded="false" />
-            <element signature="e#405#560#0" expanded="false" />
-            <element signature="e#927#1049#0" expanded="false" />
-            <element signature="e#2083#2325#0" expanded="false" />
+            <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#170#279#0" expanded="false" />
+            <element signature="e#280#459#0" expanded="false" />
+            <element signature="e#461#616#0" expanded="false" />
+            <element signature="e#1231#1397#0" expanded="false" />
+            <element signature="e#1400#1522#0" expanded="false" />
+            <element signature="e#2430#2836#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -504,19 +596,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/testgames/testmatch.game">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -549,7 +632,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -557,7 +639,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5859375">
           <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -584,15 +665,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vbos-wl2_engine-8b13982d8890/run_simulate">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -612,6 +684,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2948403">
+          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testgames/testmatch.game">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="5" selection-start-line="0" selection-start-column="0" selection-end-line="268" selection-end-column="226" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/StringManipulation.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SuperRegion.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bot.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="112" column="19" selection-start-line="112" selection-start-column="19" selection-end-line="112" selection-end-column="19" />
+          <folding>
+            <element signature="e#36#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bot.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="349" column="75" selection-start-line="349" selection-start-column="75" selection-end-line="349" selection-end-column="75" />
+          <folding>
+            <element signature="e#7#26#0" expanded="true" />
+            <element signature="e#56#72#0" expanded="true" />
+            <element signature="e#179#312#0" expanded="false" />
+            <element signature="e#332#378#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Region.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -622,81 +749,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SuperRegion.h">
+    <entry file="file://$PROJECT_DIR$/vbos-wl2_engine-8b13982d8890/run_simulate">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.206897">
-          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.46875">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/General.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+        <state vertical-scroll-proportion="1.375">
+          <caret line="111" column="13" selection-start-line="111" selection-start-column="13" selection-end-line="111" selection-end-column="13" />
           <folding>
-            <element signature="e#114#223#0" expanded="false" />
-            <element signature="e#224#403#0" expanded="false" />
-            <element signature="e#405#560#0" expanded="false" />
-            <element signature="e#927#1049#0" expanded="false" />
-            <element signature="e#2083#2325#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bot.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.5172415">
-          <caret line="57" column="5" selection-start-line="57" selection-start-column="5" selection-end-line="58" selection-end-column="4" />
-          <folding>
-            <element signature="e#36#55#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testgames/testmatch.game">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="23" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bot.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6331522">
-          <caret line="328" column="39" selection-start-line="328" selection-start-column="39" selection-end-line="328" selection-end-column="39" />
-          <folding>
-            <element signature="e#7#26#0" expanded="true" />
-            <element signature="e#56#72#0" expanded="true" />
-            <element signature="e#332#378#0" expanded="false" />
-            <element signature="e#380#490#0" expanded="false" />
-            <element signature="e#877#1134#0" expanded="false" />
-            <element signature="e#1135#1300#0" expanded="false" />
-            <element signature="e#1301#1386#0" expanded="false" />
-            <element signature="e#1387#1609#0" expanded="false" />
-            <element signature="e#1611#1677#0" expanded="false" />
-            <element signature="e#1678#1760#0" expanded="false" />
-            <element signature="e#1761#1833#0" expanded="false" />
-            <element signature="e#1834#1908#0" expanded="false" />
-            <element signature="e#1909#1995#0" expanded="false" />
-            <element signature="e#1996#2074#0" expanded="false" />
-            <element signature="e#2076#2146#0" expanded="false" />
-            <element signature="e#2148#2251#0" expanded="false" />
-            <element signature="e#2253#2364#0" expanded="false" />
-            <element signature="e#2365#2535#0" expanded="false" />
-            <element signature="e#2536#2747#0" expanded="false" />
-            <element signature="e#2749#2859#0" expanded="false" />
-            <element signature="e#2860#2924#0" expanded="false" />
-            <element signature="e#2925#3193#0" expanded="false" />
-            <element signature="e#3195#3570#0" expanded="false" />
-            <element signature="e#3571#3713#0" expanded="false" />
-            <element signature="e#3714#4674#0" expanded="false" />
-            <element signature="e#4676#4732#0" expanded="false" />
-            <element signature="e#4734#4953#0" expanded="false" />
-            <element signature="e#5144#5323#0" expanded="false" />
-            <element signature="e#5325#5544#0" expanded="false" />
-            <element signature="e#5546#5743#0" expanded="false" />
+            <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#170#279#0" expanded="false" />
+            <element signature="e#280#459#0" expanded="false" />
+            <element signature="e#461#616#0" expanded="false" />
+            <element signature="e#1231#1397#0" expanded="false" />
+            <element signature="e#1400#1522#0" expanded="false" />
+            <element signature="e#2430#2836#0" expanded="false" />
           </folding>
         </state>
       </provider>

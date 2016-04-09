@@ -106,7 +106,11 @@ public:
 
 	vector<Region> getstartingRegionsreceived();
 
-	int regionsLeftInSuper(Region place);
+	vector<Region> getAllNeighbors( Region place);
+
+	int regionsLeftInSuper(SuperRegion place);
+
+	vector<Region> NbInSuperRegion(Region player);
 
 	General* general;
 
@@ -115,7 +119,7 @@ public:
 	std::string botName;
 	std::vector<Region> regions;
 	std::vector<SuperRegion> superRegions;
-
+	int armiesLeft;
 
 
 private:
@@ -127,7 +131,7 @@ private:
 	std::vector<unsigned> opponentStartingRegions;
 	std::vector<int> ownedRegions;
 	std::vector<int> wastelands;
-	int armiesLeft;
+
 	int timebank;
 	int timePerMove;
 	int maxRounds;
