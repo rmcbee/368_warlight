@@ -13,13 +13,12 @@ class SuperRegion
 public:
 	SuperRegion();
 	SuperRegion(const int& pReward);
-
 	virtual ~SuperRegion();
-	void addRegion(const int& region);
+
 	size_t size() { return regions.size(); }
+	void addRegion(const int& region);
+
 	std::vector<int> regions;
-
-
 private:
 
 	int reward;

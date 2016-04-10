@@ -6,8 +6,6 @@
 #include <string>
 #include <sstream>
 
-namespace string {
-
 inline std::vector<std::string> &split(std::vector<std::string> &elems, const std::string &s, char delim = ',')
 {
 	std::stringstream ss(s);
@@ -28,7 +26,5 @@ inline std::string join(const std::vector<std::string> &elems,  char delim = ','
 		res += delim + *it;
 	}
 	return res;
-}
-
 }
 #endif

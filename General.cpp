@@ -1,8 +1,11 @@
-#include "General.h"
+#include <map>
+#include <random>
 #include <string>
-#include "tools/StringManipulation.h"
 
-using namespace std;
+#include "tools/StringManipulation.h"
+#include "General.h"
+#include "Region.h"
+
 General::General(Bot* x) {
 	bot = x;
 }
@@ -13,11 +16,27 @@ General::~General() {
 
 
 int General::pickStartingRegions(std::vector<int> pickfrom) {
+	std::cerr << "Regions" << std::endl;
 
-	//this function still needs implemented, we currently are just given random
-	//areas to begin with
+	std::map<int, int> regions;
+	for (int i : pickfrom) {
+		int score = 0;
 
-	return pickfrom.front();
+		// Centrality of region
+		std::cerr << "Centrality" << std::endl;
+		int cent = bot->centrality(i);
+		std::cerr << i << ": " << cent << std::endl;
+
+		regions.insert(std::pair<int, int>(i, score));
+	}
+
+	// Get the highest value region
+	std::cerr << "Num: " << regions.size() << std::endl;
+
+	std::pair<int, int> r(0, 0);
+	for (std::pair<int, int> region : regions)
+		if (r.second < region.second || r.first == 0) r = region;
+	return r.first;
 }
 
 std::vector<Move> General::generateNonAttack() {
@@ -183,7 +202,7 @@ void General::sendToEngineAttack(vector<Move> attacks)
 		attackMoves.push_back(attackMove.str());
 
 	}
-	std::cout << string::join(attackMoves) << std::endl;
+	std::cout << join(attackMoves) << std::endl;
 }
 
 

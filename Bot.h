@@ -116,7 +116,7 @@ public:
 	 *
 	 * same as output
 	 */
-	vector<Region> getAdjacentPlayer(Player player);
+	std::vector<Region> getAdjacentPlayer(Player player);
 
 	/*
 	 * input:
@@ -128,7 +128,8 @@ public:
 	 *
 	 * Same as output.
 	 */
-	vector<Region> getNeighbors(Player player, Region place);
+	std::vector<int> getNeighbors(int place);
+	std::vector<Region> getNeighbors(Player player, Region place);
 
 	/*
 	 * input: none
@@ -137,7 +138,7 @@ public:
 	 *
 	 * This function will return all regions owned by us as a vecotr of Regions
 	 */
-	vector<Region> getOwnedRegions();
+	std::vector<Region> getOwnedRegions();
 
 	/*
 	 * input: none
@@ -146,7 +147,7 @@ public:
 	 *
 	 * Returns a vector of all regions that are wastelands
 	 */
-	vector<Region> getwastelands();
+	std::vector<Region> getwastelands();
 
 	/*
 	 * input: none
@@ -155,7 +156,7 @@ public:
 	 *
 	 * It is literally what it says. It returns the starting regions we were given
 	 */
-	vector<Region> getstartingRegionsreceived();
+	std::vector<Region> getstartingRegionsreceived();
 
 	/* input:
 	 * 		Region Place: Region instance you are wanting to find the neighbors of.
@@ -165,7 +166,7 @@ public:
 	 * This function takes in any region and will return a vector of all regions
 	 * not us that are it's neighbors
 	 */
-	vector<Region> getOtherNeighbors(Region place);
+	std::vector<Region> getOtherNeighbors(Region place);
 
 	/*
 	 * input: SuperRegion place: SuperRegion you are examining
@@ -186,6 +187,8 @@ public:
 	 */
 	vector<Region> otherNbInSuperRegion(Region location);
 
+
+	int centrality(int region);
 
 	General* general;  //the general that will be running the games
 	std::string botName;

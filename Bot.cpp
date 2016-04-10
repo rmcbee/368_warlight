@@ -29,12 +29,10 @@ void Bot::playGame()
 	parser.parseInput();
 }
 
-void Bot::pickStartingRegion()
+void Bot::pickStartingRegion(int time, std::set<int> regions)
 {
-
-
 	// START HERE!
-	std::cout << startingRegionsreceived.front() << std::endl;
+	std::cout << general->pickStartingRegions(regions) << std::endl;
 }
 
 void Bot::placeArmies()
@@ -208,6 +206,11 @@ void Bot::resetRegionsOwned()
 	ownedRegions.clear();
 }
 
+std::vector<int> Bot::getNeighbors(int place)
+{
+	return regions[place].neighbors;
+}
+
 /* tested */
 vector<Region> Bot::getNeighbors(Player player, Region place)
 {
@@ -343,6 +346,55 @@ vector<Region> Bot::otherNbInSuperRegion(Region location)
 	}
 
 	return ret;
+}
+
+
+bool setContainsAll(std::set<int> first, std::set<int> second) {
+	std::set<int> difference;
+
+	for (auto const &element : first) {
+		if (second.count(element) == 0) {
+			difference.insert(element);
+		}
+	}
+
+	std::cerr << "Difference: " << difference.size() << std::endl;
+	std::cerr << "First: ";
+	for (auto r : first) {
+		std::cerr << r << " ";
+	}
+	std::cerr << std::endl << "Second: ";
+	for (auto r : second) {
+		std::cerr << r << " ";
+	}
+	std::cerr << std::endl << "Diff:" << std::endl;
+	for (auto r : difference) {
+		std::cerr << r << " ";
+	}
+	std::cerr << std::endl;
+	return 0 != difference.size();
+}
+
+
+int Bot::centrality(int region)
+{
+	int cent = 0;
+
+	std::set<int> open, visited, super;
+	open.insert(region);
+
+	while (!setContainsAll(super, visited)) {
+		cent++;
+		open.clear();
+		for (int r : visited) {
+			auto neighbors = getNeighbors(r);
+			open.insert(neighbors.begin(), neighbors.end());
+		}
+		visited.insert(open.begin(), open.end());
+	}
+
+	return cent;
+	return 0;
 }
 
 

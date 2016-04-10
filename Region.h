@@ -8,8 +8,6 @@
 // project
 #include "main.h"
 
-using namespace std;
-
 class Region
 {
 public:
