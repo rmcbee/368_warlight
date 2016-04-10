@@ -91,9 +91,6 @@ vector<Move> General::generateAttacks()
 	vector<Region> myRegions = bot->getRegionsOwnedBy(ME);
 
 
-
-
-
 	// Look at potential enemy attacks
 	for (Region n : myRegions) {
 
@@ -109,7 +106,18 @@ vector<Move> General::generateAttacks()
 
 			if(Nb.empty())
 			{
-				Nb = bot->getNeighbors(ME, n);
+				//Nb = bot->getNeighbors(ME, n);
+
+				Move transfer = calculateTransfer(n);
+
+				//Need to push moves this way to prevent seg fault
+				moves.push_back(Move());
+
+				//you'll push to moves this way. Every other way seems to seg fault
+				moves[counter].to = transfer.to;
+				moves[counter].from = transfer.from;
+				moves[counter++].armies = transfer.armies;
+
 			}
 		}
 
@@ -123,25 +131,37 @@ vector<Move> General::generateAttacks()
 				break;
 		}
 
+		if(!Nb.empty())
+		{
+			//Need to push moves this way to prevent seg fault
+			moves.push_back(Move());
 
-		//Need to push moves this way to prevent seg fault
-		moves.push_back(Move());
-
-		//you'll push to moves this way. Every other way seems to seg fault
-		moves[counter].to = attackingRegion;
-		moves[counter].from = n;
-		moves[counter++].armies = n.getArmies() - 1;
-
-
+			//you'll push to moves this way. Every other way seems to seg fault
+			moves[counter].to = attackingRegion;
+			moves[counter].from = n;
+			moves[counter++].armies = n.getArmies() - 1;
+		}
 
 
 	}
 
 
-
-
 	return moves;
-	//return moves;
+}
+
+Move General::calculateTransfer(Region place)
+{
+	vector<Region> MyNb = bot->getNeighbors(ME, place);
+
+	Move transfer;
+
+	transfer.from = place;
+
+	transfer.to = MyNb[rand() % MyNb.size()];
+
+	transfer.armies = transfer.from.getArmies() - 1;
+
+	return transfer;
 }
 
 void General::sendToEngineAttack(vector<Move> attacks)

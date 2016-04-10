@@ -52,6 +52,22 @@ public:
      */
     void calculateTurn();
 
+
+    /*
+     * input:
+     *      Region place: the location that can only transfer its troop. It has no enemies around it
+     *
+     * Output: Outputs a move struct that tells the general where to transfer the troops to put them
+     *          in the best position to attack/defend next round
+     *
+     * This fumction will be another one of the key algorithms that we will be writing. This function will
+     * direct where to transfer the troops of regions that are only surrounded by ourself. This function
+     * will need to calculate in which dirrection it should move the troops in order to put them in possition
+     * to either attack the next round, defend the next round, or be in a better position to attack/defend next round.
+     */
+
+    Move calculateTransfer(Region place);
+
     Bot* bot;
 
     vector<Move> generateAttacks();
