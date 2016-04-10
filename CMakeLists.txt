@@ -7,6 +7,8 @@ set(SOURCE_FILES
     tools/noncopyable.hpp
     tools/StringManipulation.h
     Bot.cpp
+    General.cpp
+    General.h
     Bot.h
     main.cpp
     main.h

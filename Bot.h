@@ -94,28 +94,100 @@ public:
 
 	void resetRegionsOwned();
 
+
+
+
+	/*
+	 * input:
+	 *       Player player: player of the regions we are looking for
+	 * output:
+	 * 		vector<Region>: vector of all seen regions of that player
+	 *
+	 * Does the same thing that get adjacent player does I beleive, but it is called by some functions so I am keeping this function.
+	 */
 	vector<Region> getRegionsOwnedBy(Player player);
 
+	/*
+	 * input:
+	 * 		Player player: player you want to find the regions of
+	 *
+	 * output:
+	 * 		vector<Region>: returns all regions on the known map owned by the certain player
+	 *
+	 * same as output
+	 */
 	vector<Region> getAdjacentPlayer(Player player);
 
+	/*
+	 * input:
+	 * 		Player player: the player that you want to find if you are neighbors with
+	 * 		Region place: the region which you are examining the neighbors of
+	 *
+	 *output:
+	 * 		Vector<Region>: Returns all neighbors around a certain Region that are owned by a particular owner
+	 *
+	 * Same as output.
+	 */
 	vector<Region> getNeighbors(Player player, Region place);
 
+	/*
+	 * input: none
+	 *
+	 * output: vecotr<Regions>: returns all regions owned by us
+	 *
+	 * This function will return all regions owned by us as a vecotr of Regions
+	 */
 	vector<Region> getOwnedRegions();
 
+	/*
+	 * input: none
+	 *
+	 * output: Vector<Region>: returns a vector of all of the wastelands on the map
+	 *
+	 * Returns a vector of all regions that are wastelands
+	 */
 	vector<Region> getwastelands();
 
+	/*
+	 * input: none
+	 *
+	 * output: vector<Region>: returns a vector of Regions of all of the starting reginos
+	 *
+	 * It is literally what it says. It returns the starting regions we were given
+	 */
 	vector<Region> getstartingRegionsreceived();
 
-	vector<Region> getAllNeighbors( Region place);
+	/* input:
+	 * 		Region Place: Region instance you are wanting to find the neighbors of.
+	 * outpout:
+	 * 		vector<Region>: Returns a vector of all neighbors that are not me
+	 *
+	 * This function takes in any region and will return a vector of all regions
+	 * not us that are it's neighbors
+	 */
+	vector<Region> getOtherNeighbors(Region place);
 
+	/*
+	 * input: SuperRegion place: SuperRegion you are examining
+	 *
+	 * output: int: returns the amount of not us teritories left in the super region
+	 *
+	 * This function counts the number of regions that are not us that are in a particular superRegion
+	 */
 	int regionsLeftInSuper(SuperRegion place);
 
-	vector<Region> NbInSuperRegion(Region player);
+	/*
+	 * input: Region location: the region you want to find to find the neibhors that are in the same super region as it
+	 *
+	 * output: vector<Region>: returns a Region vecotr of all neighbors in the same super region
+	 *
+	 * This function checks for all other neighbors in a super region that are not you and then returns them as a vecotr of regions
+	 *
+	 */
+	vector<Region> otherNbInSuperRegion(Region location);
 
-	General* general;
 
-	void doNothing(void);
-
+	General* general;  //the general that will be running the games
 	std::string botName;
 	std::vector<Region> regions;
 	std::vector<SuperRegion> superRegions;

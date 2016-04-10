@@ -224,7 +224,7 @@ vector<Region> Bot::getNeighbors(Player player, Region place)
 	return ret;
 }
 
-vector<Region> Bot::getAllNeighbors(Region place)
+vector<Region> Bot::getOtherNeighbors(Region place)
 {
 	vector<Region> ret;
 
@@ -239,7 +239,6 @@ vector<Region> Bot::getAllNeighbors(Region place)
 	return ret;
 }
 
-/* tested */
 vector<Region> Bot::getOwnedRegions()
 {
 	vector<Region> ret;
@@ -254,7 +253,6 @@ vector<Region> Bot::getOwnedRegions()
 
 }
 
-/*tested */
 vector<Region> Bot::getwastelands()
 {
 	vector<Region> ret;
@@ -268,7 +266,6 @@ vector<Region> Bot::getwastelands()
 
 }
 
-/* tested */
 vector<Region> Bot::getstartingRegionsreceived()
 {
 	vector<Region> ret;
@@ -282,7 +279,6 @@ vector<Region> Bot::getstartingRegionsreceived()
 
 }
 
-/* tested */
 vector<Region> Bot::getRegionsOwnedBy(Player player) {
 	std::vector<Region> ret;
 	for (Region r: regions) {
@@ -295,7 +291,6 @@ vector<Region> Bot::getRegionsOwnedBy(Player player) {
 	return ret;
 }
 
-/*tested, mostly*/
 vector<Region> Bot::getAdjacentPlayer(Player player) {
 	vector<Region> ret;
 	set<int> regionSet;
@@ -311,7 +306,6 @@ vector<Region> Bot::getAdjacentPlayer(Player player) {
 				break;
 		}
 	}
-	cerr << "here" << endl;
 
 	for(std::set<int>::iterator it=regionSet.begin(); it!=regionSet.end(); ++it)
 	{
@@ -323,10 +317,6 @@ vector<Region> Bot::getAdjacentPlayer(Player player) {
 	return ret;
 }
 
-
-
-
-/* tested */
 int Bot::regionsLeftInSuper(SuperRegion place)
 {
 
@@ -341,17 +331,16 @@ int Bot::regionsLeftInSuper(SuperRegion place)
 
 }
 
-vector<Region> Bot::NbInSuperRegion(Region place)
+vector<Region> Bot::otherNbInSuperRegion(Region location)
 {
 	vector<Region> ret;
 
-	for (int i = 0; i < place.getNbNeighbors(); i++) {
+	for (int i = 0; i < location.getNbNeighbors(); i++) {
 
-		if(regions[place.neighbors[i]].superRegion == place.superRegion && regions[place.neighbors[i]].owner != ME)
-			ret.push_back(regions[place.neighbors[i]]);
+		if(regions[location.neighbors[i]].superRegion == location.superRegion && regions[location.neighbors[i]].owner != ME)
+			ret.push_back(regions[location.neighbors[i]]);
 
 	}
-
 
 	return ret;
 }

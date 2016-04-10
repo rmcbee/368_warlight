@@ -29,25 +29,26 @@ public:
 	 */
 	int pickStartingRegions(std::vector<int> pickfrom);
 
-    /** std::vector<Move> getAttack();
-	 * Calculates the suggested attacks for this turn.
-	 */
-	std::vector<Move> getAttack();
-
-    /** std::vector<Move> getDefense();
-    * Calculates the suggested attacks for this turn.
+    /** std::vector<Move> generateNonAttack();
+    * Calculates the suggested movement of troops that are not going to attack
     */
-    std::vector<Move> getDefense();
-        
-    /** std::vector<Move> getDeployment();
-	 * Returns the calculated deployment for this turn.
-     */  
+    std::vector<Move> generateNonAttack();
+
+    /*
+     * input: none
+     *
+     * output: none
+     *
+     * This function calculates and executes which troops should be deployed for the round. This function is independent of
+     * the attack and defense functionality in order to make the overall generals job simpiler. This will be one of the key
+     * algorithms we will show off for this project.
+     */
     void getDeployment();
         
     /** void calculateTurn(float time);
      *  This function prioritizes different troop placements and
      *  prioritizes different attacks and moves taking into account the
-     *  results from getAttack and getDefense.
+     *  results from getAttack and generateNonAttack.
      */
     void calculateTurn();
 

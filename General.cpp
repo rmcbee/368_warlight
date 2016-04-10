@@ -13,39 +13,44 @@ General::~General() {
 
 
 int General::pickStartingRegions(std::vector<int> pickfrom) {
-	//calculate front
+
+	//this function still needs implemented, we currently are just given random
+	//areas to begin with
 
 	return pickfrom.front();
 }
-std::vector<Move> General::getAttack() {
 
-	//need to finsih. Does this do the transfers or just call the attack function?
-	this->generateAttacks();
+std::vector<Move> General::generateNonAttack() {
+
+	/*this function will take as input a region that has no enemy or neutral
+	 * neighbors around it and calculates the best route to send the troops as
+	 * to reinforce and/or start attacking
+	 * this will bing an optimized path problem aka Dijkstra's algorithm
+	 *
+	 */
 
 	return std::vector<Move>();
 }
-
-std::vector<Move> General::getDefense() {
-
-	//need to finsih. Does this do the transfers or just call the deffense function?
-	return std::vector<Move>();
-}
-
 
 void General::getDeployment() {
 
-	//Calculate the deloyment. Again, isn't this done based on Defense, not because of Defense.
-
+	//creates a variable to store which super region I have troops in that has the least amount of regions left to take
 	int lowestSuper = 100;
+
+	//variables for the calculations
 	Region regionAddingTo;
 	int temp;
 
+	//get all regions owned by me
 	vector<Region> myRegions= bot->getOwnedRegions();
 
+	//loop through all of my regions and find the region that is in the super region that is easiest to take
 	for(Region r: myRegions)
 	{
+		//get the amount of regions left in the super region
 		temp = bot->regionsLeftInSuper(bot->superRegions[r.superRegion]);
 
+		//if there are less regions to take in this super region, add make this region the one we add troops to
 		if(temp < lowestSuper && temp != 0)
 		{
 			lowestSuper = temp;
@@ -55,9 +60,11 @@ void General::getDeployment() {
 
 	}
 
+	//add all of the troops to the region that is in the easiest super region to take
 	std::cout << bot->botName << " place_armies " << regionAddingTo.id << " " << bot->armiesLeft
 	<< std::endl;
 
+	//update the number of armies left in the bot class
 	bot->addArmies(regionAddingTo.id, bot->armiesLeft);
 
 	return;
@@ -68,13 +75,7 @@ void General::calculateTurn() {
 	//This call attack and deffense and then combines the moves?
 	vector<Move> moves = generateAttacks();
 
-
 	sendToEngineAttack(moves);
-}
-
-
-bool sortByArmiesDifference(Move l, Move r) {
-	return (l.armies - l.from.getArmies()) > (r.armies - r.from.getArmies());
 }
 
 
@@ -100,11 +101,11 @@ vector<Move> General::generateAttacks()
 		if(n.armies == 1)
 			continue;
 
-		vector<Region> Nb = bot->NbInSuperRegion(n);
+		vector<Region> Nb = bot->otherNbInSuperRegion(n);
 
 		if(Nb.empty())
 		{
-			Nb = bot->getAllNeighbors(n);
+			Nb = bot->getOtherNeighbors(n);
 
 			if(Nb.empty())
 			{
