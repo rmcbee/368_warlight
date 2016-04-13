@@ -1,5 +1,7 @@
 #include "General.h"
 #include <string>
+#include <queue>
+#include <stdlib.h>
 #include "tools/StringManipulation.h"
 
 using namespace std;
@@ -149,15 +151,67 @@ vector<Move> General::generateAttacks()
 	return moves;
 }
 
-Move General::calculateTransfer(Region place)
-{
-	vector<Region> MyNb = bot->getNeighbors(ME, place);
+int General::rateNeed(Region* region){
+    int need = 0;
+    for(Region adj : bot->getNeighbors(ME, *region)){
+        if(adj.getOwner()!= ME) need++;
+    }
+    return need;
+}
+
+Region* General::getTransferEndDest(){
+    std::vector<Region> owned = bot->getRegionsOwnedBy(ME);
+    Region* destination = NULL;
+    for(Region possEnd : owned){
+        if(destination == NULL) destination = &possEnd;
+        if(rateNeed(&possEnd) > rateNeed(destination)){
+            destination = &possEnd;
+        }
+    }
+    return destination;
+}
+
+/** \brief Calculates the next step in the shortest path from start to last.
+ *
+ * \param start Region* the starting region
+ * \param last Region* the target region
+ * \return Region* the region adjacent to start to move to
+ *
+ */     
+Region* General::nextStep(Region* start, Region* last){
+    int numRegions = bot->regions.size();
+    bool* visited = (bool*) calloc(numRegions + 1, 1); //each index refers to a region id
+    int numVisited = 0;
+    std::queue<Region*> pathQueue;
+    pathQueue.push(last);
+    while(numVisited < numRegions){
+        Region* region = pathQueue.front();
+        pathQueue.pop();
+        std::vector<Region> neighbors = bot->getNeighbors(ME, *region);
+        std::vector<Region> others = bot->getOtherNeighbors(*region);
+        neighbors.insert(neighbors.begin(), others.begin(), others.end());
+        for(Region neighbor : neighbors){
+            if(visited[neighbor.id]) continue;
+            if(neighbor.id == start->id){
+                free(visited);
+                return region;
+            }
+            visited[neighbor.id] = true;
+            pathQueue.push(&neighbor);
+            numVisited++;
+        }
+    }
+    free(visited);
+    return NULL;
+}
+
+Move General::calculateTransfer(Region place) {
 
 	Move transfer;
 
 	transfer.from = place;
 
-	transfer.to = MyNb[rand() % MyNb.size()];
+	transfer.to = *nextStep(&place, getTransferEndDest());
 
 	transfer.armies = transfer.from.getArmies() - 1;
 
