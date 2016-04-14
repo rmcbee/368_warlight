@@ -15,26 +15,26 @@ General::~General() {
 }
 
 
-int General::pickStartingRegions(std::vector<int> pickfrom) {
-	std::cerr << "Regions" << std::endl;
+int General::pickStartingRegions(std::set<int> pickfrom) {
+	std::map<int, double> regions;
+	for (int region : pickfrom) {
+		double score = 0;
 
-	std::map<int, int> regions;
-	for (int i : pickfrom) {
-		int score = 0;
+		double centralvalue = 1, supervalue = 0.5;
 
 		// Centrality of region
-		std::cerr << "Centrality" << std::endl;
-		int cent = bot->centrality(i);
-		std::cerr << i << ": " << cent << std::endl;
+		// Negative because less central is a bigger number
+		score += centralvalue * -bot->centrality(region);
 
-		regions.insert(std::pair<int, int>(i, score));
+		// Value of region
+		score += supervalue * bot->superRegions[bot->regions[region].superRegion].reward;
+
+		regions.insert(std::pair<int, int>(region, score));
 	}
 
 	// Get the highest value region
-	std::cerr << "Num: " << regions.size() << std::endl;
-
-	std::pair<int, int> r(0, 0);
-	for (std::pair<int, int> region : regions)
+	std::pair<int, double> r(0, 0);
+	for (std::pair < int, double > region : regions)
 		if (r.second < region.second || r.first == 0) r = region;
 	return r.first;
 }

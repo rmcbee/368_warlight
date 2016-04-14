@@ -27,7 +27,7 @@ public:
 	 * @param std::vector<Region&> pickfrom List of possible regions to start with.
 	 * Returns the desired starting regions.
 	 */
-	int pickStartingRegions(std::vector<int> pickfrom);
+	int pickStartingRegions(std::set<int> pickfrom);
 
     /** std::vector<Move> generateNonAttack();
     * Calculates the suggested movement of troops that are not going to attack

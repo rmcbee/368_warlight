@@ -146,7 +146,7 @@ void Bot::executeAction()
 		return;
 	if (phase == Bot::PICK_STARTING_REGION)
 	{
-		pickStartingRegion();
+//		pickStartingRegion();
 	}
 	else if (phase == Bot::PLACE_ARMIES)
 	{
@@ -349,52 +349,53 @@ vector<Region> Bot::otherNbInSuperRegion(Region location)
 }
 
 
-bool setContainsAll(std::set<int> first, std::set<int> second) {
+bool setContainsAll(std::set<int> super, std::set<int> visited) {
 	std::set<int> difference;
 
-	for (auto const &element : first) {
-		if (second.count(element) == 0) {
+	for (int element : super) {
+		if (visited.count(element) == 0) {
 			difference.insert(element);
 		}
 	}
 
-	std::cerr << "Difference: " << difference.size() << std::endl;
+	/*std::cerr << "Difference: " << difference.size() << std::endl;
 	std::cerr << "First: ";
-	for (auto r : first) {
+	for (auto r : super) {
 		std::cerr << r << " ";
 	}
 	std::cerr << std::endl << "Second: ";
-	for (auto r : second) {
+	for (auto r : visited) {
 		std::cerr << r << " ";
 	}
-	std::cerr << std::endl << "Diff:" << std::endl;
+	std::cerr << std::endl << "Diff:";
 	for (auto r : difference) {
 		std::cerr << r << " ";
 	}
-	std::cerr << std::endl;
-	return 0 != difference.size();
+	std::cerr << std::endl;*/
+	return 0 == difference.size();
 }
 
 
 int Bot::centrality(int region)
 {
+	std::set<int> visited, super;
 	int cent = 0;
+	
+	std::vector<int> s = superRegions[regions[region].getSuperRegion()].regions;
+	for (int r : s) {
+		super.insert(r);
+	}
 
-	std::set<int> open, visited, super;
-	open.insert(region);
+	visited.insert(region);
 
 	while (!setContainsAll(super, visited)) {
 		cent++;
-		open.clear();
 		for (int r : visited) {
 			auto neighbors = getNeighbors(r);
-			open.insert(neighbors.begin(), neighbors.end());
+			visited.insert(neighbors.begin(), neighbors.end());
 		}
-		visited.insert(open.begin(), open.end());
 	}
-
 	return cent;
-	return 0;
 }
 
 

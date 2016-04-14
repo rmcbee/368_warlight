@@ -41,7 +41,12 @@ void Parser::parseInput()
 		{
 			std::string line;
 			getline(std::cin, line);
-			std::cerr  << inputType << " " << line << std::endl;
+			if (inputType == "print") {
+				std::cerr << "Print: " << line << std::endl;
+			}
+			else {
+				std::cerr  << inputType << " " << line << std::endl;
+			}
 		}
 
 		theBot->executeAction();

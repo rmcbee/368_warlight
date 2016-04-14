@@ -19,9 +19,9 @@ public:
 	void addRegion(const int& region);
 
 	std::vector<int> regions;
+	int reward;
 private:
 
-	int reward;
 };
 
 #endif // SUPERREGION_H_INCLUDED

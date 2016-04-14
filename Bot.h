@@ -7,6 +7,7 @@
 #include <vector>
 #include <cmath>
 #include <sstream>
+#include <set>
 
 // project
 #include "main.h"
@@ -36,7 +37,7 @@ public:
 
 	void playGame();    ///< plays a single game of Warlight
 
-	void pickStartingRegion();
+	void pickStartingRegion(int time, std::set<int> regions);
 	void placeArmies();
 	void makeMoves();   ///< makes moves for a single turn
 
@@ -105,7 +106,7 @@ public:
 	 *
 	 * Does the same thing that get adjacent player does I beleive, but it is called by some functions so I am keeping this function.
 	 */
-	vector<Region> getRegionsOwnedBy(Player player);
+	std::vector<Region> getRegionsOwnedBy(Player player);
 
 	/*
 	 * input:
