@@ -1,6 +1,7 @@
 #include "General.h"
 #include <string>
 #include "tools/StringManipulation.h"
+#include <math.h>
 
 using namespace std;
 General::General(Bot* x) {
@@ -114,10 +115,9 @@ vector<Move> General::generateAttacks()
 				moves.push_back(Move());
 
 				//you'll push to moves this way. Every other way seems to seg fault
-				moves[counter].to = transfer.to;
-				moves[counter].from = transfer.from;
-				moves[counter++].armies = transfer.armies;
-
+				moves[counter].to = transfer.from;
+				moves[counter].from = transfer.to;
+				moves[counter++].armies = transfer.armies;	
 			}
 		}
 
@@ -125,24 +125,39 @@ vector<Move> General::generateAttacks()
 
 		for(Region r: Nb)
 		{
-			attackingRegion = r;
-
-			if(attackingRegion.owner == ENEMY)
-				break;
+			if(r.owner == ENEMY)
+			{
+				//you'll push to moves this way. Every other way seems to seg fault
+				if(n.armies >= r.armies * 2)
+				{
+					//Need to push moves this way to prevent seg fault
+					moves.push_back(Move());
+				
+					moves[counter].to = r;
+					moves[counter].from = n;
+					moves[counter++].armies = r.armies * 2;
+					n.setArmies(n.armies - r.armies * 2);
+				}	
+			}
 		}
-
-		if(!Nb.empty())
+		
+		for(Region r: Nb)
 		{
-			//Need to push moves this way to prevent seg fault
-			moves.push_back(Move());
-
-			//you'll push to moves this way. Every other way seems to seg fault
-			moves[counter].to = attackingRegion;
-			moves[counter].from = n;
-			moves[counter++].armies = n.getArmies() - 1;
+			if(r.owner == NEUTRAL)
+			{
+				//you'll push to moves this way. Every other way seems to seg fault
+				if(n.armies >= r.armies * 2)
+				{
+					//Need to push moves this way to prevent seg fault
+					moves.push_back(Move());
+				
+					moves[counter].to = r;
+					moves[counter].from = n;
+					moves[counter++].armies = r.armies * 2;
+					n.setArmies(n.armies - r.armies * 2);
+				}	
+			}
 		}
-
-
 	}
 
 
