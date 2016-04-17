@@ -121,8 +121,6 @@ vector<Move> General::generateAttacks()
 			}
 		}
 
-		Region attackingRegion;
-
 		for(Region r: Nb)
 		{
 			if(r.owner == ENEMY)
