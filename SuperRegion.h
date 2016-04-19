@@ -18,11 +18,11 @@ public:
 	void addRegion(const int& region);
 	size_t size() { return regions.size(); }
 	std::vector<int> regions;
-
+	int reward;
 
 private:
 
-	int reward;
+
 };
 
 #endif // SUPERREGION_H_INCLUDED

@@ -15,6 +15,7 @@
 
 using namespace std;
 
+
 class Attack;
 
 class General {
@@ -66,7 +67,12 @@ public:
      * to either attack the next round, defend the next round, or be in a better position to attack/defend next round.
      */
 
-    Move calculateTransfer(Region place);
+    Move calculateTransfer(Region* place);
+
+
+    int getWeight(Region* place);
+
+    void sortRankedDeployments(vector<pair<Region*, int>>& deployments);
 
     Bot* bot;
 

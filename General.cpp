@@ -2,6 +2,7 @@
 #include <string>
 #include "tools/StringManipulation.h"
 
+
 using namespace std;
 General::General(Bot* x) {
 	bot = x;
@@ -34,42 +35,227 @@ std::vector<Move> General::generateNonAttack() {
 
 void General::getDeployment() {
 
-	//creates a variable to store which super region I have troops in that has the least amount of regions left to take
-	int lowestSuper = 100;
+	int numAddingTo = 3;
+	int weight;
 
-	//variables for the calculations
-	Region regionAddingTo;
-	int temp;
+	//vector<pair<Region*, int>> regionAddingTo; //variables for the calculations
+	vector<Region*> myRegions= bot->getOwnedRegions(); //get all regions owned by me
 
-	//get all regions owned by me
-	vector<Region> myRegions= bot->getOwnedRegions();
+	std::vector<std::string> deployMoves; //vetor of moves that will deploy the troops for this round
+	Region* rankRegion[100];
+	int rankWeight[100] = {};
+	int totalweights = 0;
+
+	for(int i = 0; i < numAddingTo; i++)
+	{
+		rankRegion[i] = NULL;
+	}
 
 	//loop through all of my regions and find the region that is in the super region that is easiest to take
-	for(Region r: myRegions)
-	{
-		//get the amount of regions left in the super region
-		temp = bot->regionsLeftInSuper(bot->superRegions[r.superRegion]);
+	for(Region* r: myRegions) {
 
-		//if there are less regions to take in this super region, add make this region the one we add troops to
-		if(temp < lowestSuper && temp != 0)
+		weight = getWeight(r);
+		totalweights += weight;
+
+
+		int lowest = 0;
+
+		for(int i = 1; i < numAddingTo; i++)
 		{
-			lowestSuper = temp;
-			regionAddingTo = r;
+			if(rankWeight[i] < rankWeight[lowest])
+				lowest = i;
 		}
 
+		if(weight > lowest)
+		{
+			rankRegion[lowest] = r;
+			rankWeight[lowest] = weight;
+		}
 
 	}
 
-	//add all of the troops to the region that is in the easiest super region to take
-	std::cout << bot->botName << " place_armies " << regionAddingTo.id << " " << bot->armiesLeft
-	<< std::endl;
 
-	//update the number of armies left in the bot class
-	bot->addArmies(regionAddingTo.id, bot->armiesLeft);
+	int armiesRemaining = bot->armiesLeft;
+
+	for(int i = 0; i < numAddingTo; i++)
+	{
+		//std::stringstream deployMove;
+		if(rankRegion[i] == NULL)
+			continue;
+
+		int weightArmies = (bot->armiesLeft * rankWeight[i]) / totalweights;
+		std::cout << bot->botName << " place_armies " << rankRegion[i]->id << " " << weightArmies << ",";
+
+		bot->addArmies(rankRegion[i]->id, weightArmies);
+
+		//update the number of armies left in the bot class
+		armiesRemaining -= weightArmies;
+	}
+
+
+
+	if(armiesRemaining)
+	{
+		int highest = 0;
+
+		for(int i = 1; i < numAddingTo; i++)
+		{
+			if(rankWeight[i] > rankWeight[highest])
+				highest = i;
+		}
+
+		std::stringstream deployMove;
+
+		std::cout << bot->botName << " place_armies " << rankRegion[highest]->id << " " << bot->armiesLeft;
+
+		//update the number of armies left in the bot class
+		bot->addArmies(rankRegion[highest]->id, bot->armiesLeft);
+	}
+	std::cout << endl;
 
 	return;
 }
 
+void General::sortRankedDeployments(vector<pair<Region*, int> >& deployments)
+{
+	int pass, index;
+	pair<Region*, int> valpair;
+
+	for(pass = 1; pass < deployments.size(); pass++)
+	{
+		valpair = deployments[pass];
+		index = pass - 1;
+		while(index >= 0 && deployments[index].second < valpair.second)
+		{
+			deployments[index + 1] = deployments [index];
+			index--;
+		}
+		deployments[index + 1] = valpair;
+	}
+	return;
+}
+
+int General::getWeight(Region* place)
+{
+
+	int weight = 0;
+
+	//weight based on who is around you
+
+	//if I am surrounded by myself, return 0
+	vector<Region*> neighborsNotMe = bot->getOtherNeighbors(place);
+
+	if(neighborsNotMe.empty())
+		return weight;
+
+	vector<Region*> neighborsMe = bot->getNeighbors(ME, place);
+
+	//weight based on super region
+	SuperRegion super = bot->superRegions[place->superRegion];
+
+	//calculates the rank of this super reigon
+
+
+
+	//how valuable is the super region this region is in
+	int RegionsLeft = bot->regionsLeftInSuper(super);
+	int superRank = super.reward * (super.size() - RegionsLeft) * (super.size() - RegionsLeft);
+
+	//Is this region at risk from being taken?
+	/*vector<Region*> enemies = bot->getNeighbors(ENEMY, place);
+	vector<Region*> neutral = bot->getNeighbors(NEUTRAL, place);
+
+	double troopDiff = 0;
+	int worth = 0;
+
+
+	//some enemy neihbors
+	if(!enemies.empty())
+	{
+		for(Region* r: enemies)
+		{
+			//chpeck troop difference
+			troopDiff = (place->armies - r->armies) / place->armies;
+
+			//place worth on taking the region
+			worth = 1;
+
+			if(place->superRegion == r->superRegion)
+			{
+				worth += 1;
+			}
+
+
+			double value = troopDiff * worth;
+
+			if(troopDiff >= 1)
+			{
+				//add weight based on troop diff
+				weight += value * 2;
+				//continue
+			}
+			else if(troopDiff >= 0.3)
+			{
+				//add num troops based on troop diff
+				//add troops to ATTACK!!!!!
+				weight += value * 3;
+				//add in luck factor?
+				//continue
+			}
+			else if(troopDiff >= 0)
+			{
+				//add no troops
+				weight += value;
+				//continue;
+				//continue
+			}
+
+			//defend
+			else
+			{
+				//recalculate worth
+				worth = 1;
+				//check if this is defending other regions
+					//check if the super region is worth keeping
+
+
+				//recalculate value
+				value = troopDiff * worth;
+
+				if(troopDiff >= -0.5)
+				{
+					//add some troops for defense
+					weight += value;
+					//add in luck factor??
+					//continue
+				}
+				else
+				{
+					//check if out current region is needed
+
+					//if needed
+					//add troops!!!!!
+					weight += value * 2;
+
+					//else
+					//bye bye
+				}
+			}
+
+		}
+	}
+	//all neutral neibhors
+	else
+	{
+		if(RegionsLeft != 0)
+			weight += superRank;
+	}*/
+
+	if(RegionsLeft != 0)
+		weight += superRank;
+
+	return weight;
+}
 
 void General::calculateTurn() {
 	//This call attack and deffense and then combines the moves?
@@ -77,8 +263,6 @@ void General::calculateTurn() {
 
 	sendToEngineAttack(moves);
 }
-
-
 
 vector<Move> General::generateAttacks()
 {
@@ -88,17 +272,23 @@ vector<Move> General::generateAttacks()
 	vector<Move> moves;
 
 	// Get adjacent regions depending on owner.
-	vector<Region> myRegions = bot->getRegionsOwnedBy(ME);
+	vector<Region*> myRegions = bot->getOwnedRegions();
+
+
 
 
 	// Look at potential enemy attacks
-	for (Region n : myRegions) {
+	for (Region* n : myRegions) {
 
 
-		if(n.armies == 1)
+		if(n->armies == 1)
 			continue;
 
-		vector<Region> Nb = bot->otherNbInSuperRegion(n);
+
+
+		vector<Region*> Nb = bot->otherNbInSuperRegion(n);
+
+
 
 		if(Nb.empty())
 		{
@@ -106,7 +296,6 @@ vector<Move> General::generateAttacks()
 
 			if(Nb.empty())
 			{
-				//Nb = bot->getNeighbors(ME, n);
 
 				Move transfer = calculateTransfer(n);
 
@@ -121,13 +310,13 @@ vector<Move> General::generateAttacks()
 			}
 		}
 
-		Region attackingRegion;
+		Region* attackingRegion;
 
-		for(Region r: Nb)
+		for(Region* r: Nb)
 		{
 			attackingRegion = r;
 
-			if(attackingRegion.owner == ENEMY)
+			if(attackingRegion->owner == ENEMY)
 				break;
 		}
 
@@ -137,11 +326,10 @@ vector<Move> General::generateAttacks()
 			moves.push_back(Move());
 
 			//you'll push to moves this way. Every other way seems to seg fault
-			moves[counter].to = attackingRegion;
-			moves[counter].from = n;
-			moves[counter++].armies = n.getArmies() - 1;
+			moves[counter].to = *attackingRegion;
+			moves[counter].from = *n;
+			moves[counter++].armies = n->getArmies() - 1;
 		}
-
 
 	}
 
@@ -149,15 +337,15 @@ vector<Move> General::generateAttacks()
 	return moves;
 }
 
-Move General::calculateTransfer(Region place)
+Move General::calculateTransfer(Region* place)
 {
-	vector<Region> MyNb = bot->getNeighbors(ME, place);
+	vector<Region*> MyNb = bot->getNeighbors(ME, place);
 
 	Move transfer;
 
-	transfer.from = place;
+	transfer.from = *place;
 
-	transfer.to = MyNb[rand() % MyNb.size()];
+	transfer.to = *(MyNb[rand() % MyNb.size()]);
 
 	transfer.armies = transfer.from.getArmies() - 1;
 
@@ -170,20 +358,25 @@ void General::sendToEngineAttack(vector<Move> attacks)
 		return;
 
 	std::vector<std::string> attackMoves;
-	std::stringstream attackMove;
+	//std::stringstream attackMove;
 
 	for(Move m: attacks)
 	{
+		std::stringstream attackMove;
 
-			attackMove << bot->botName << " attack/transfer " << m.from.id << " " << m.to.id
-				<< " " << m.armies << ",";
+
+		attackMove << bot->botName << " attack/transfer " << m.from.id << " " << m.to.id
+				<< " " << m.armies;
 
 
 
 		attackMoves.push_back(attackMove.str());
 
 	}
-	std::cout << string::join(attackMoves) << std::endl;
+
+	//for(int i = 0; i < attackMoves.size(); i++)
+		//std::cout << attackMoves[i] << std::endl;
+		std::cout << string::join(attackMoves) << std::endl;
 }
 
 

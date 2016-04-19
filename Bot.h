@@ -105,7 +105,7 @@ public:
 	 *
 	 * Does the same thing that get adjacent player does I beleive, but it is called by some functions so I am keeping this function.
 	 */
-	vector<Region> getRegionsOwnedBy(Player player);
+	vector<Region*> getRegionsOwnedBy(Player player);
 
 	/*
 	 * input:
@@ -128,7 +128,7 @@ public:
 	 *
 	 * Same as output.
 	 */
-	vector<Region> getNeighbors(Player player, Region place);
+	vector<Region*> getNeighbors(Player player, Region* place);
 
 	/*
 	 * input: none
@@ -137,7 +137,7 @@ public:
 	 *
 	 * This function will return all regions owned by us as a vecotr of Regions
 	 */
-	vector<Region> getOwnedRegions();
+	vector<Region*> getOwnedRegions();
 
 	/*
 	 * input: none
@@ -146,7 +146,7 @@ public:
 	 *
 	 * Returns a vector of all regions that are wastelands
 	 */
-	vector<Region> getwastelands();
+	vector<Region*> getwastelands();
 
 	/*
 	 * input: none
@@ -155,7 +155,7 @@ public:
 	 *
 	 * It is literally what it says. It returns the starting regions we were given
 	 */
-	vector<Region> getstartingRegionsreceived();
+	vector<Region*> getstartingRegionsreceived();
 
 	/* input:
 	 * 		Region Place: Region instance you are wanting to find the neighbors of.
@@ -165,7 +165,7 @@ public:
 	 * This function takes in any region and will return a vector of all regions
 	 * not us that are it's neighbors
 	 */
-	vector<Region> getOtherNeighbors(Region place);
+	vector<Region*> getOtherNeighbors(Region* place);
 
 	/*
 	 * input: SuperRegion place: SuperRegion you are examining
@@ -184,7 +184,7 @@ public:
 	 * This function checks for all other neighbors in a super region that are not you and then returns them as a vecotr of regions
 	 *
 	 */
-	vector<Region> otherNbInSuperRegion(Region location);
+	vector<Region*> otherNbInSuperRegion(Region* location);
 
 
 	General* general;  //the general that will be running the games
