@@ -1,6 +1,7 @@
 #include "General.h"
 #include <string>
 #include "tools/StringManipulation.h"
+#include <math.h>
 
 
 using namespace std;
@@ -42,6 +43,7 @@ void General::getDeployment() {
 	vector<Region*> myRegions= bot->getOwnedRegions(); //get all regions owned by me
 
 	std::vector<std::string> deployMoves; //vetor of moves that will deploy the troops for this round
+
 	Region* rankRegion[100];
 	int rankWeight[100] = {};
 	int totalweights = 0;
@@ -79,14 +81,17 @@ void General::getDeployment() {
 
 	for(int i = 0; i < numAddingTo; i++)
 	{
-		//std::stringstream deployMove;
+		std::stringstream deployMove;
 		if(rankRegion[i] == NULL)
 			continue;
 
 		int weightArmies = (bot->armiesLeft * rankWeight[i]) / totalweights;
-		std::cout << bot->botName << " place_armies " << rankRegion[i]->id << " " << weightArmies << ",";
+
+		deployMove << bot->botName << " place_armies " << rankRegion[i]->id << " " << weightArmies;
 
 		bot->addArmies(rankRegion[i]->id, weightArmies);
+
+		deployMoves.push_back(deployMove.str());
 
 		//update the number of armies left in the bot class
 		armiesRemaining -= weightArmies;
@@ -106,12 +111,14 @@ void General::getDeployment() {
 
 		std::stringstream deployMove;
 
-		std::cout << bot->botName << " place_armies " << rankRegion[highest]->id << " " << bot->armiesLeft;
+		deployMove << bot->botName << " place_armies " << rankRegion[highest]->id << " " << bot->armiesLeft;
 
 		//update the number of armies left in the bot class
 		bot->addArmies(rankRegion[highest]->id, bot->armiesLeft);
+
+		deployMoves.push_back(deployMove.str());
 	}
-	std::cout << endl;
+	std::cout << string::join(deployMoves) << endl;
 
 	return;
 }
@@ -297,40 +304,58 @@ vector<Move> General::generateAttacks()
 			if(Nb.empty())
 			{
 
-				Move transfer = calculateTransfer(n);
+				/*Move transfer = calculateTransfer(n);
 
 				//Need to push moves this way to prevent seg fault
 				moves.push_back(Move());
 
 				//you'll push to moves this way. Every other way seems to seg fault
-				moves[counter].to = transfer.to;
-				moves[counter].from = transfer.from;
-				moves[counter++].armies = transfer.armies;
-
+				moves[counter].to = transfer.from;
+				moves[counter].from = transfer.to;
+				moves[counter++].armies = transfer.armies;	*/
 			}
 		}
 
-		Region* attackingRegion;
 
 		for(Region* r: Nb)
 		{
-			attackingRegion = r;
+			if(r->owner == ENEMY)
+			{
+				//you'll push to moves this way. Every other way seems to seg fault
+				if(n->armies >= r->armies * 2)
+				{
 
-			if(attackingRegion->owner == ENEMY)
-				break;
+					//Need to push moves this way to prevent seg fault
+					moves.push_back(Move());
+				
+					moves[counter].to = r;
+					moves[counter].from = n;
+					moves[counter++].armies = r->armies * 2;
+					//n->setArmies(n->armies - r->armies * 2);
+				}	
+			}
+
 		}
-
-		if(!Nb.empty())
+		
+		for(Region* r: Nb)
 		{
-			//Need to push moves this way to prevent seg fault
-			moves.push_back(Move());
 
-			//you'll push to moves this way. Every other way seems to seg fault
-			moves[counter].to = *attackingRegion;
-			moves[counter].from = *n;
-			moves[counter++].armies = n->getArmies() - 1;
+			if(r->owner == NEUTRAL)
+			{
+				//you'll push to moves this way. Every other way seems to seg fault
+				if(n->armies >= r->armies * 2)
+				{
+
+					//Need to push moves this way to prevent seg fault
+					moves.push_back(Move());
+				
+					moves[counter].to = r;
+					moves[counter].from = n;
+					moves[counter++].armies = r->armies * 2;
+					//n->setArmies(n->armies - r->armies * 2);
+				}	
+			}
 		}
-
 	}
 
 
@@ -343,11 +368,11 @@ Move General::calculateTransfer(Region* place)
 
 	Move transfer;
 
-	transfer.from = *place;
+	transfer.from = place;
 
-	transfer.to = *(MyNb[rand() % MyNb.size()]);
+	transfer.to = (MyNb[rand() % MyNb.size()]);
 
-	transfer.armies = transfer.from.getArmies() - 1;
+	transfer.armies = transfer.from->getArmies() - 1;
 
 	return transfer;
 }
@@ -365,7 +390,7 @@ void General::sendToEngineAttack(vector<Move> attacks)
 		std::stringstream attackMove;
 
 
-		attackMove << bot->botName << " attack/transfer " << m.from.id << " " << m.to.id
+		attackMove << bot->botName << " attack/transfer " << m.from->id << " " << m.to->id
 				<< " " << m.armies;
 
 

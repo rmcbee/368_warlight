@@ -15,7 +15,7 @@ using namespace std;
 Bot::Bot() :
 		armiesLeft(0), timebank(0), timePerMove(0), maxRounds(0), parser(this), phase(NONE)
 {
-	general = new General(this);
+	 general = new General(this);
 
 }
 

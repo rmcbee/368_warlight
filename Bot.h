@@ -193,6 +193,8 @@ public:
 	std::vector<SuperRegion> superRegions;
 	int armiesLeft;
 
+	int timebank;
+	int timePerMove;
 
 private:
 	std::ifstream in;
@@ -204,8 +206,7 @@ private:
 	std::vector<int> ownedRegions;
 	std::vector<int> wastelands;
 
-	int timebank;
-	int timePerMove;
+
 	int maxRounds;
 	Parser parser;
 	Phase phase;
