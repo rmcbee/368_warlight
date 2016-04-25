@@ -41,7 +41,12 @@ void Parser::parseInput()
 		{
 			std::string line;
 			getline(std::cin, line);
-			std::cerr  << inputType << " " << line << std::endl;
+			if (inputType == "print") {
+				std::cerr << "Print: " << line << std::endl;
+			}
+			else {
+				std::cerr  << inputType << " " << line << std::endl;
+			}
 		}
 
 		theBot->executeAction();
@@ -62,6 +67,10 @@ void Parser::parseSetupMap()
 		parseWastelands();
 	else if (setupType == "opponent_starting_regions")
 		parseOpponentStartingRegions();
+	else if (setupType == "exit")
+		exit(0);
+	else if (setupType == "print")
+		;
 }
 
 void Parser::parseSettings()
@@ -197,18 +206,21 @@ void Parser::parseRegions()
 
 void Parser::parsePickStartingRegion()
 {
-	int region;
-	int delay;
-	std::cin >> delay;
-	theBot->startDelay(delay);
-	theBot->clearStartingRegions();
-	while (std::cin >> region)
-	{
-		theBot->addStartingRegion(region);
-		if (lineEnds())
-			break;
-	}
 	theBot->setPhase(Bot::PICK_STARTING_REGION);
+
+	int time;
+	std::set<int> regions;
+	std::cin >> time;
+
+	std::string line;
+	std::getline(std::cin, line);
+	std::stringstream str_stream(line);
+	int region;
+	while (str_stream >> region) {
+		regions.insert(region);
+	}
+
+	theBot->pickStartingRegion(time, regions);
 }
 
 void Parser::parseOpponentStartingRegions()
@@ -231,7 +243,7 @@ void Parser::parseNeighbors()
 	while (std::cin >> region >> neighbors)
 	{
 		neighbors_flds.clear();
-		string::split(neighbors_flds, neighbors);
+		split(neighbors_flds, neighbors);
 		for (unsigned i = 0; i < neighbors_flds.size(); i++)
 			theBot->addNeighbors(region, atoi(neighbors_flds[i].c_str()));
 		if (lineEnds())

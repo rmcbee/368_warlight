@@ -1,10 +1,14 @@
-#include "General.h"
+#include <map>
+#include <random>
 #include <string>
+#include <queue>
+#include <stdlib.h>
 #include "tools/StringManipulation.h"
+#include "General.h"
+#include "Region.h"
 #include <math.h>
 
 
-using namespace std;
 General::General(Bot* x) {
 	bot = x;
 }
@@ -14,12 +18,28 @@ General::~General() {
 }
 
 
-int General::pickStartingRegions(std::vector<int> pickfrom) {
+int General::pickStartingRegions(std::set<int> pickfrom) {
+	std::map<int, double> regions;
+	for (int region : pickfrom) {
+		double score = 0;
 
-	//this function still needs implemented, we currently are just given random
-	//areas to begin with
+		double centralvalue = 1, supervalue = 0.5;
 
-	return pickfrom.front();
+		// Centrality of region
+		// Negative because less central is a bigger number
+		score += centralvalue * -bot->centrality(region);
+
+		// Value of region
+		score += supervalue * bot->superRegions[bot->regions[region].superRegion].reward;
+
+		regions.insert(std::pair<int, int>(region, score));
+	}
+
+	// Get the highest value region
+	std::pair<int, double> r(0, 0);
+	for (std::pair < int, double > region : regions)
+		if (r.second < region.second || r.first == 0) r = region;
+	return r.first;
 }
 
 std::vector<Move> General::generateNonAttack() {
@@ -121,14 +141,14 @@ void General::getDeployment() {
 
 		deployMoves.push_back(deployMove.str());
 	}
-	std::cout << string::join(deployMoves) << endl;
+	std::cout << join(deployMoves) << endl;
 
 	return;
 }
 
 void General::sortRankedDeployments(vector<pair<Region*, int> >& deployments)
 {
-	int pass, index;
+	size_t pass, index;
 	pair<Region*, int> valpair;
 
 	for(pass = 1; pass < deployments.size(); pass++)
@@ -365,15 +385,67 @@ vector<Move> General::generateAttacks()
 	return moves;
 }
 
-Move General::calculateTransfer(Region* place)
-{
-	vector<Region*> MyNb = bot->getNeighbors(ME, place);
+int General::rateNeed(Region* region){
+    int need = 0;
+    for(Region* adj : bot->getNeighbors(ME, region)){
+        if(adj->getOwner()!= ME) need++;
+    }
+    return need;
+}
+
+Region* General::getTransferEndDest(){
+    std::vector<Region*> owned = bot->getRegionsOwnedBy(ME);
+    Region* destination = NULL;
+    for(Region* possEnd : owned){
+        if(destination == NULL) destination = possEnd;
+        if(rateNeed(possEnd) > rateNeed(destination)){
+            destination = possEnd;
+        }
+    }
+    return destination;
+}
+
+/** \brief Calculates the next step in the shortest path from start to last.
+ *
+ * \param start Region* the starting region
+ * \param last Region* the target region
+ * \return Region* the region adjacent to start to move to
+ *
+ */     
+Region* General::nextStep(Region* start, Region* last){
+    int numRegions = bot->regions.size();
+    bool* visited = (bool*) calloc(numRegions + 1, 1); //each index refers to a region id
+    int numVisited = 0;
+    std::queue<Region*> pathQueue;
+    pathQueue.push(last);
+    while(numVisited < numRegions){
+        Region* region = pathQueue.front();
+        pathQueue.pop();
+        std::vector<Region*> neighbors = bot->getNeighbors(ME, region);
+        std::vector<Region*> others = bot->getOtherNeighbors(region);
+        neighbors.insert(neighbors.begin(), others.begin(), others.end());
+        for(Region* neighbor : neighbors){
+            if(visited[neighbor->id]) continue;
+            if(neighbor->id == start->id){
+                free(visited);
+                return region;
+            }
+            visited[neighbor->id] = true;
+            pathQueue.push(neighbor);
+            numVisited++;
+        }
+    }
+    free(visited);
+    return NULL;
+}
+
+Move General::calculateTransfer(Region *place) {
 
 	Move transfer;
 
 	transfer.from = place;
 
-	transfer.to = (MyNb[rand() % MyNb.size()]);
+	transfer.to = nextStep(place, getTransferEndDest());
 
 	transfer.armies = transfer.from->getArmies() - 1;
 
@@ -388,14 +460,12 @@ void General::sendToEngineAttack(vector<Move> attacks)
 	std::vector<std::string> attackMoves;
 	//std::stringstream attackMove;
 
-	for(Move m: attacks)
-	{
+	for(Move m: attacks) {
 		std::stringstream attackMove;
 
 
 		attackMove << bot->botName << " attack/transfer " << m.from->id << " " << m.to->id
-				<< " " << m.armies;
-
+		<< " " << m.armies;
 
 
 		attackMoves.push_back(attackMove.str());
@@ -404,7 +474,7 @@ void General::sendToEngineAttack(vector<Move> attacks)
 
 	//for(int i = 0; i < attackMoves.size(); i++)
 		//std::cout << attackMoves[i] << std::endl;
-		std::cout << string::join(attackMoves) << std::endl;
+		std::cout << join(attackMoves) << std::endl;
 }
 
 

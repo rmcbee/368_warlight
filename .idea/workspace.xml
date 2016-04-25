@@ -12,11 +12,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f2ad5d5-5593-4e2b-bae2-76a04e46fdf8" name="Default" comment="">
+<<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/General.o" afterPath="$PROJECT_DIR$/General.o" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bot" afterPath="$PROJECT_DIR$/bot" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/General.cpp" afterPath="$PROJECT_DIR$/General.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vbos-wl2_engine-8b13982d8890/err.txt" afterPath="$PROJECT_DIR$/vbos-wl2_engine-8b13982d8890/err.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vbos-wl2_engine-8b13982d8890/out.txt" afterPath="$PROJECT_DIR$/vbos-wl2_engine-8b13982d8890/out.txt" />
+=======
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/368_warlight.zip" afterPath="$PROJECT_DIR$/368_warlight.zip" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bot.o" afterPath="$PROJECT_DIR$/Bot.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/General.o" afterPath="$PROJECT_DIR$/General.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bot" afterPath="$PROJECT_DIR$/bot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bot.cpp" afterPath="$PROJECT_DIR$/Bot.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bot.h" afterPath="$PROJECT_DIR$/Bot.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/General.cpp" afterPath="$PROJECT_DIR$/General.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/General.h" afterPath="$PROJECT_DIR$/General.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Move.h" afterPath="$PROJECT_DIR$/Move.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SuperRegion.h" afterPath="$PROJECT_DIR$/SuperRegion.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vbos-wl2_engine-8b13982d8890/err.txt" afterPath="$PROJECT_DIR$/vbos-wl2_engine-8b13982d8890/err.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vbos-wl2_engine-8b13982d8890/out.txt" afterPath="$PROJECT_DIR$/vbos-wl2_engine-8b13982d8890/out.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vbos-wl2_engine-8b13982d8890/run_simulate" afterPath="$PROJECT_DIR$/vbos-wl2_engine-8b13982d8890/run_simulate" />
+>>>>>>> a873ed2862c5b58edf7b6c138238f5e069b42716
     </list>
     <ignored path="warlight-starterbot.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,21 +67,87 @@
       <file leaf-file-name="Bot.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Bot.cpp">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state vertical-scroll-proportion="99.354836">
               <caret line="115" column="1" selection-start-line="115" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
               <folding>
                 <element signature="e#7#26#0" expanded="true" />
                 <element signature="e#56#72#0" expanded="true" />
+=======
+            <state vertical-scroll-proportion="-1.0">
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding>
+                <element signature="e#8#27#0" expanded="true" />
+                <element signature="e#57#73#0" expanded="true" />
+                <element signature="e#638#895#0" expanded="false" />
+                <element signature="e#896#1061#0" expanded="false" />
+                <element signature="e#1062#1147#0" expanded="false" />
+                <element signature="e#1148#1370#0" expanded="false" />
+>>>>>>> a873ed2862c5b58edf7b6c138238f5e069b42716
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="General.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/General.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.2370892">
               <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+=======
+      <file leaf-file-name="Parser.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Parser.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.4838705">
+              <caret line="225" column="33" selection-start-line="225" selection-start-column="33" selection-end-line="225" selection-end-column="33" />
+              <folding>
+                <element signature="e#3920#4270#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Bot.h" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Bot.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.3442029">
+              <caret line="39" column="59" selection-start-line="39" selection-start-column="59" selection-end-line="39" selection-end-column="59" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SuperRegion.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SuperRegion.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+              <folding>
+                <element signature="e#100#117#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="General.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/General.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-117.09677">
+              <caret line="420" column="21" selection-start-line="420" selection-start-column="21" selection-end-line="420" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="General.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/General.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="74" column="27" selection-start-line="74" selection-start-column="27" selection-end-line="74" selection-end-column="27" />
+>>>>>>> a873ed2862c5b58edf7b6c138238f5e069b42716
               <folding />
             </state>
           </provider>
@@ -78,7 +161,28 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/General.cpp" />
+=======
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/Defense.h" />
+        <option value="$PROJECT_DIR$/Move.h" />
+        <option value="$PROJECT_DIR$/Move.cpp" />
+        <option value="$PROJECT_DIR$/Attack.h" />
+        <option value="$PROJECT_DIR$/main.h" />
+        <option value="$PROJECT_DIR$/Region.cpp" />
+        <option value="$PROJECT_DIR$/Attack.cpp" />
+        <option value="$PROJECT_DIR$/testgames/testmatch.game" />
+        <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/vbos-wl2_engine-8b13982d8890/run_simulate" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/Region.h" />
+        <option value="$PROJECT_DIR$/General.h" />
+        <option value="$PROJECT_DIR$/SuperRegion.h" />
+        <option value="$PROJECT_DIR$/General.cpp" />
+        <option value="$PROJECT_DIR$/Bot.h" />
+        <option value="$PROJECT_DIR$/Bot.cpp" />
+>>>>>>> a873ed2862c5b58edf7b6c138238f5e069b42716
       </list>
     </option>
   </component>
@@ -130,6 +234,14 @@
       </pane>
     </panes>
   </component>
+<<<<<<< HEAD
+=======
+  <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/rmcbee/368_warlight/Bot.h" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.notifications" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+  </component>
+>>>>>>> a873ed2862c5b58edf7b6c138238f5e069b42716
   <component name="RunManager" selected="Application.warlight_starterbot">
     <configuration default="true" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="warlight_starterbot" TARGET_NAME="warlight_starterbot" CONFIG_NAME="Debug" TEST_MODE="SUITE_TEST">
       <envs />
@@ -189,7 +301,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44358578" sideWeight="0.5031299" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17928903" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2503864" sideWeight="0.4968701" order="10" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43431222" sideWeight="0.4968701" order="10" side_tool="false" content_ui="tabs" />
+>>>>>>> a873ed2862c5b58edf7b6c138238f5e069b42716
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921174" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -237,7 +353,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+<<<<<<< HEAD
           <folding />
+=======
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+>>>>>>> a873ed2862c5b58edf7b6c138238f5e069b42716
         </state>
       </provider>
     </entry>
@@ -261,8 +383,17 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="209" column="0" selection-start-line="209" selection-start-column="0" selection-end-line="209" selection-end-column="0" />
           <folding>
+<<<<<<< HEAD
             <element signature="e#7#26#0" expanded="true" />
             <element signature="e#56#72#0" expanded="true" />
+=======
+            <element signature="e#8#27#0" expanded="true" />
+            <element signature="e#57#73#0" expanded="true" />
+            <element signature="e#638#895#0" expanded="false" />
+            <element signature="e#896#1061#0" expanded="false" />
+            <element signature="e#1062#1147#0" expanded="false" />
+            <element signature="e#1148#1370#0" expanded="false" />
+>>>>>>> a873ed2862c5b58edf7b6c138238f5e069b42716
           </folding>
         </state>
       </provider>
@@ -271,7 +402,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+<<<<<<< HEAD
           <folding />
+=======
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+>>>>>>> a873ed2862c5b58edf7b6c138238f5e069b42716
         </state>
       </provider>
     </entry>
@@ -295,8 +432,17 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="349" column="75" selection-start-line="349" selection-start-column="75" selection-end-line="349" selection-end-column="75" />
           <folding>
+<<<<<<< HEAD
             <element signature="e#7#26#0" expanded="true" />
             <element signature="e#56#72#0" expanded="true" />
+=======
+            <element signature="e#8#27#0" expanded="true" />
+            <element signature="e#57#73#0" expanded="true" />
+            <element signature="e#638#895#0" expanded="false" />
+            <element signature="e#896#1061#0" expanded="false" />
+            <element signature="e#1062#1147#0" expanded="false" />
+            <element signature="e#1148#1370#0" expanded="false" />
+>>>>>>> a873ed2862c5b58edf7b6c138238f5e069b42716
           </folding>
         </state>
       </provider>
@@ -306,8 +452,17 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="349" column="75" selection-start-line="349" selection-start-column="75" selection-end-line="349" selection-end-column="75" />
           <folding>
+<<<<<<< HEAD
             <element signature="e#7#26#0" expanded="true" />
             <element signature="e#56#72#0" expanded="true" />
+=======
+            <element signature="e#8#27#0" expanded="true" />
+            <element signature="e#57#73#0" expanded="true" />
+            <element signature="e#638#895#0" expanded="false" />
+            <element signature="e#896#1061#0" expanded="false" />
+            <element signature="e#1062#1147#0" expanded="false" />
+            <element signature="e#1148#1370#0" expanded="false" />
+>>>>>>> a873ed2862c5b58edf7b6c138238f5e069b42716
           </folding>
         </state>
       </provider>
@@ -316,7 +471,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+<<<<<<< HEAD
           <folding />
+=======
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+>>>>>>> a873ed2862c5b58edf7b6c138238f5e069b42716
         </state>
       </provider>
     </entry>
@@ -383,8 +544,17 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="318" column="18" selection-start-line="318" selection-start-column="18" selection-end-line="318" selection-end-column="18" />
           <folding>
+<<<<<<< HEAD
             <element signature="e#7#26#0" expanded="true" />
             <element signature="e#56#72#0" expanded="true" />
+=======
+            <element signature="e#8#27#0" expanded="true" />
+            <element signature="e#57#73#0" expanded="true" />
+            <element signature="e#638#895#0" expanded="false" />
+            <element signature="e#896#1061#0" expanded="false" />
+            <element signature="e#1062#1147#0" expanded="false" />
+            <element signature="e#1148#1370#0" expanded="false" />
+>>>>>>> a873ed2862c5b58edf7b6c138238f5e069b42716
           </folding>
         </state>
       </provider>
@@ -393,7 +563,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+<<<<<<< HEAD
           <folding />
+=======
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+>>>>>>> a873ed2862c5b58edf7b6c138238f5e069b42716
         </state>
       </provider>
     </entry>
@@ -584,16 +760,26 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/SuperRegion.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
           <folding>
             <element signature="e#100#117#0" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/General.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-117.09677">
+          <caret line="420" column="21" selection-start-line="420" selection-start-column="21" selection-end-line="420" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+>>>>>>> a873ed2862c5b58edf7b6c138238f5e069b42716
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Parser.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.419354">
@@ -609,10 +795,34 @@
           <folding>
             <element signature="e#36#55#0" expanded="true" />
             <element signature="e#141#158#0" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/SuperRegion.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+          <folding>
+            <element signature="e#100#117#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Bot.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.0">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding>
+            <element signature="e#8#27#0" expanded="true" />
+            <element signature="e#57#73#0" expanded="true" />
+            <element signature="e#638#895#0" expanded="false" />
+            <element signature="e#896#1061#0" expanded="false" />
+            <element signature="e#1062#1147#0" expanded="false" />
+            <element signature="e#1148#1370#0" expanded="false" />
+>>>>>>> a873ed2862c5b58edf7b6c138238f5e069b42716
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Bot.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="99.354836">
@@ -620,14 +830,29 @@
           <folding>
             <element signature="e#7#26#0" expanded="true" />
             <element signature="e#56#72#0" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/Parser.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.4838705">
+          <caret line="225" column="33" selection-start-line="225" selection-start-column="33" selection-end-line="225" selection-end-column="33" />
+          <folding>
+            <element signature="e#3920#4270#0" expanded="false" />
+>>>>>>> a873ed2862c5b58edf7b6c138238f5e069b42716
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/General.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2370892">
           <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+=======
+    <entry file="file://$PROJECT_DIR$/Bot.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3442029">
+          <caret line="39" column="59" selection-start-line="39" selection-start-column="59" selection-end-line="39" selection-end-column="59" />
+>>>>>>> a873ed2862c5b58edf7b6c138238f5e069b42716
           <folding />
         </state>
       </provider>

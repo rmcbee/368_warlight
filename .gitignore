@@ -1,4 +1,8 @@
+*.exe
+*.o
+*.zip
 build/
 .cproject
 .project
 .settings/
+WarlightVisualStudio/
