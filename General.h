@@ -83,8 +83,13 @@ public:
 private:
     // stop making class variables for attack and defense
     std::vector<MoveGenerator *> advisors;
-
-
+    
+    int rateNeed(Region* region);
+    
+    Region* getTransferEndDest();
+    
+    Region* nextStep(Region* start, Region* last);
+    
 };
 
 #endif // !GENERAL_H
