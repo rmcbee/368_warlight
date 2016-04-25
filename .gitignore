@@ -6,3 +6,4 @@ build/
 .project
 .settings/
 WarlightVisualStudio/
+.idea/workspace.xml
