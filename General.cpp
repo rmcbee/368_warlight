@@ -42,6 +42,8 @@ void General::getDeployment() {
 	//vector<pair<Region*, int>> regionAddingTo; //variables for the calculations
 	vector<Region*> myRegions= bot->getOwnedRegions(); //get all regions owned by me
 
+
+
 	std::vector<std::string> deployMoves; //vetor of moves that will deploy the troops for this round
 
 	Region* rankRegion[100];
@@ -73,6 +75,7 @@ void General::getDeployment() {
 			rankRegion[lowest] = r;
 			rankWeight[lowest] = weight;
 		}
+		if(weight > 0) break;
 
 	}
 
