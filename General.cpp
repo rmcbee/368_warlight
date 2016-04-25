@@ -1,10 +1,13 @@
-#include "General.h"
+#include <map>
+#include <random>
 #include <string>
+
 #include "tools/StringManipulation.h"
+#include "General.h"
+#include "Region.h"
 #include <math.h>
 
 
-using namespace std;
 General::General(Bot* x) {
 	bot = x;
 }
@@ -14,12 +17,28 @@ General::~General() {
 }
 
 
-int General::pickStartingRegions(std::vector<int> pickfrom) {
+int General::pickStartingRegions(std::set<int> pickfrom) {
+	std::map<int, double> regions;
+	for (int region : pickfrom) {
+		double score = 0;
 
-	//this function still needs implemented, we currently are just given random
-	//areas to begin with
+		double centralvalue = 1, supervalue = 0.5;
 
-	return pickfrom.front();
+		// Centrality of region
+		// Negative because less central is a bigger number
+		score += centralvalue * -bot->centrality(region);
+
+		// Value of region
+		score += supervalue * bot->superRegions[bot->regions[region].superRegion].reward;
+
+		regions.insert(std::pair<int, int>(region, score));
+	}
+
+	// Get the highest value region
+	std::pair<int, double> r(0, 0);
+	for (std::pair < int, double > region : regions)
+		if (r.second < region.second || r.first == 0) r = region;
+	return r.first;
 }
 
 std::vector<Move> General::generateNonAttack() {
@@ -118,7 +137,7 @@ void General::getDeployment() {
 
 		deployMoves.push_back(deployMove.str());
 	}
-	std::cout << string::join(deployMoves) << endl;
+	std::cout << join(deployMoves) << endl;
 
 	return;
 }
@@ -385,14 +404,12 @@ void General::sendToEngineAttack(vector<Move> attacks)
 	std::vector<std::string> attackMoves;
 	//std::stringstream attackMove;
 
-	for(Move m: attacks)
-	{
+	for(Move m: attacks) {
 		std::stringstream attackMove;
 
 
 		attackMove << bot->botName << " attack/transfer " << m.from->id << " " << m.to->id
-				<< " " << m.armies;
-
+		<< " " << m.armies;
 
 
 		attackMoves.push_back(attackMove.str());
@@ -401,7 +418,7 @@ void General::sendToEngineAttack(vector<Move> attacks)
 
 	//for(int i = 0; i < attackMoves.size(); i++)
 		//std::cout << attackMoves[i] << std::endl;
-		std::cout << string::join(attackMoves) << std::endl;
+		std::cout << join(attackMoves) << std::endl;
 }
 
 

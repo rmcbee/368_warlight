@@ -1,3 +1,4 @@
+
 // stl
 #include <iostream>
 #include <string>
@@ -29,7 +30,7 @@ void Bot::playGame()
 	parser.parseInput();
 }
 
-void Bot::pickStartingRegion()
+void Bot::pickStartingRegion(int time, std::set<int> regions)
 {
 
 
@@ -148,7 +149,7 @@ void Bot::executeAction()
 		return;
 	if (phase == Bot::PICK_STARTING_REGION)
 	{
-		pickStartingRegion();
+		//pickStartingRegion();
 	}
 	else if (phase == Bot::PLACE_ARMIES)
 	{
@@ -347,5 +348,57 @@ vector<Region*> Bot::otherNbInSuperRegion(Region* location)
 	return ret;
 }
 
+bool setContainsAll(std::set<int> super, std::set<int> visited) {
+	std::set<int> difference;
+
+	for (int element : super) {
+		if (visited.count(element) == 0) {
+			difference.insert(element);
+		}
+	}
+
+	/*std::cerr << "Difference: " << difference.size() << std::endl;
+	std::cerr << "First: ";
+	for (auto r : super) {
+		std::cerr << r << " ";
+	}
+	std::cerr << std::endl << "Second: ";
+	for (auto r : visited) {
+		std::cerr << r << " ";
+	}
+	std::cerr << std::endl << "Diff:";
+	for (auto r : difference) {
+		std::cerr << r << " ";
+	}
+	std::cerr << std::endl;*/
+	return 0 == difference.size();
+}
+
+int Bot::centrality(int region)
+{
+	std::set<int> visited, super;
+	int cent = 0;
+
+	std::vector<int> s = superRegions[regions[region].getSuperRegion()].regions;
+	for (int r : s) {
+		super.insert(r);
+	}
+
+	visited.insert(region);
+
+	while (!setContainsAll(super, visited)) {
+		cent++;
+		for (int r : visited) {
+			auto neighbors = getNeighbors(r);
+			visited.insert(neighbors.begin(), neighbors.end());
+		}
+	}
+	return cent;
+}
+
+std::vector<int> Bot::getNeighbors(int place)
+{
+	return regions[place].neighbors;
+}
 
 

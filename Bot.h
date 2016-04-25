@@ -1,3 +1,4 @@
+
 #ifndef BOT_H
 #define BOT_H
 
@@ -36,7 +37,7 @@ public:
 
 	void playGame();    ///< plays a single game of Warlight
 
-	void pickStartingRegion();
+	void pickStartingRegion(int time, std::set<int> regions);
 	void placeArmies();
 	void makeMoves();   ///< makes moves for a single turn
 
@@ -195,6 +196,11 @@ public:
 
 	int timebank;
 	int timePerMove;
+
+	std::vector<int> getNeighbors(int place);
+
+
+	int centrality(int region);
 
 private:
 	std::ifstream in;
