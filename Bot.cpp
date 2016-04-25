@@ -245,7 +245,7 @@ vector<Region*> Bot::getOwnedRegions()
 	vector<Region*> ret;
 
 
-	for(int i = 0; i < ownedRegions.size(); i++)
+	for(size_t i = 0; i < ownedRegions.size(); i++)
 	{
 		ret.push_back(&regions[ownedRegions[i]]);
 	}
@@ -258,7 +258,7 @@ vector<Region*> Bot::getwastelands()
 {
 	vector<Region*> ret;
 
-	for(int i = 0; i < wastelands.size(); i++)
+	for(size_t i = 0; i < wastelands.size(); i++)
 	{
 		ret.push_back(&regions[wastelands[i]]);
 	}
@@ -271,7 +271,7 @@ vector<Region*> Bot::getstartingRegionsreceived()
 {
 	vector<Region*> ret;
 
-	for(int i = 0; i < startingRegionsreceived.size(); i++)
+	for(size_t i = 0; i < startingRegionsreceived.size(); i++)
 	{
 		ret.push_back(&regions[startingRegionsreceived[i]]);
 	}

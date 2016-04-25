@@ -145,7 +145,7 @@ void General::getDeployment() {
 
 void General::sortRankedDeployments(vector<pair<Region*, int> >& deployments)
 {
-	int pass, index;
+	size_t pass, index;
 	pair<Region*, int> valpair;
 
 	for(pass = 1; pass < deployments.size(); pass++)
@@ -384,19 +384,19 @@ vector<Move> General::generateAttacks()
 
 int General::rateNeed(Region* region){
     int need = 0;
-    for(Region adj : bot->getNeighbors(ME, *region)){
-        if(adj.getOwner()!= ME) need++;
+    for(Region* adj : bot->getNeighbors(ME, region)){
+        if(adj->getOwner()!= ME) need++;
     }
     return need;
 }
 
 Region* General::getTransferEndDest(){
-    std::vector<Region> owned = bot->getRegionsOwnedBy(ME);
+    std::vector<Region*> owned = bot->getRegionsOwnedBy(ME);
     Region* destination = NULL;
-    for(Region possEnd : owned){
-        if(destination == NULL) destination = &possEnd;
-        if(rateNeed(&possEnd) > rateNeed(destination)){
-            destination = &possEnd;
+    for(Region* possEnd : owned){
+        if(destination == NULL) destination = possEnd;
+        if(rateNeed(possEnd) > rateNeed(destination)){
+            destination = possEnd;
         }
     }
     return destination;
@@ -418,17 +418,17 @@ Region* General::nextStep(Region* start, Region* last){
     while(numVisited < numRegions){
         Region* region = pathQueue.front();
         pathQueue.pop();
-        std::vector<Region> neighbors = bot->getNeighbors(ME, *region);
-        std::vector<Region> others = bot->getOtherNeighbors(*region);
+        std::vector<Region*> neighbors = bot->getNeighbors(ME, region);
+        std::vector<Region*> others = bot->getOtherNeighbors(region);
         neighbors.insert(neighbors.begin(), others.begin(), others.end());
-        for(Region neighbor : neighbors){
-            if(visited[neighbor.id]) continue;
-            if(neighbor.id == start->id){
+        for(Region* neighbor : neighbors){
+            if(visited[neighbor->id]) continue;
+            if(neighbor->id == start->id){
                 free(visited);
                 return region;
             }
-            visited[neighbor.id] = true;
-            pathQueue.push(&neighbor);
+            visited[neighbor->id] = true;
+            pathQueue.push(neighbor);
             numVisited++;
         }
     }
@@ -436,13 +436,13 @@ Region* General::nextStep(Region* start, Region* last){
     return NULL;
 }
 
-Move General::calculateTransfer(Region place) {
+Move General::calculateTransfer(Region *place) {
 
 	Move transfer;
 
 	transfer.from = place;
 
-	transfer.to = *nextStep(&place, getTransferEndDest());
+	transfer.to = nextStep(place, getTransferEndDest());
 
 	transfer.armies = transfer.from->getArmies() - 1;
 
