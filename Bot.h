@@ -1,3 +1,4 @@
+
 #ifndef BOT_H
 #define BOT_H
 
@@ -7,7 +8,6 @@
 #include <vector>
 #include <cmath>
 #include <sstream>
-#include <set>
 
 // project
 #include "main.h"
@@ -106,7 +106,7 @@ public:
 	 *
 	 * Does the same thing that get adjacent player does I beleive, but it is called by some functions so I am keeping this function.
 	 */
-	std::vector<Region> getRegionsOwnedBy(Player player);
+	vector<Region*> getRegionsOwnedBy(Player player);
 
 	/*
 	 * input:
@@ -117,7 +117,7 @@ public:
 	 *
 	 * same as output
 	 */
-	std::vector<Region> getAdjacentPlayer(Player player);
+	vector<Region> getAdjacentPlayer(Player player);
 
 	/*
 	 * input:
@@ -129,8 +129,7 @@ public:
 	 *
 	 * Same as output.
 	 */
-	std::vector<int> getNeighbors(int place);
-	std::vector<Region> getNeighbors(Player player, Region place);
+	vector<Region*> getNeighbors(Player player, Region* place);
 
 	/*
 	 * input: none
@@ -139,7 +138,7 @@ public:
 	 *
 	 * This function will return all regions owned by us as a vecotr of Regions
 	 */
-	std::vector<Region> getOwnedRegions();
+	vector<Region*> getOwnedRegions();
 
 	/*
 	 * input: none
@@ -148,7 +147,7 @@ public:
 	 *
 	 * Returns a vector of all regions that are wastelands
 	 */
-	std::vector<Region> getwastelands();
+	vector<Region*> getwastelands();
 
 	/*
 	 * input: none
@@ -157,7 +156,7 @@ public:
 	 *
 	 * It is literally what it says. It returns the starting regions we were given
 	 */
-	std::vector<Region> getstartingRegionsreceived();
+	vector<Region*> getstartingRegionsreceived();
 
 	/* input:
 	 * 		Region Place: Region instance you are wanting to find the neighbors of.
@@ -167,7 +166,7 @@ public:
 	 * This function takes in any region and will return a vector of all regions
 	 * not us that are it's neighbors
 	 */
-	std::vector<Region> getOtherNeighbors(Region place);
+	vector<Region*> getOtherNeighbors(Region* place);
 
 	/*
 	 * input: SuperRegion place: SuperRegion you are examining
@@ -186,10 +185,8 @@ public:
 	 * This function checks for all other neighbors in a super region that are not you and then returns them as a vecotr of regions
 	 *
 	 */
-	vector<Region> otherNbInSuperRegion(Region location);
+	vector<Region*> otherNbInSuperRegion(Region* location);
 
-
-	int centrality(int region);
 
 	General* general;  //the general that will be running the games
 	std::string botName;
@@ -197,6 +194,13 @@ public:
 	std::vector<SuperRegion> superRegions;
 	int armiesLeft;
 
+	int timebank;
+	int timePerMove;
+
+	std::vector<int> getNeighbors(int place);
+
+
+	int centrality(int region);
 
 private:
 	std::ifstream in;
@@ -208,8 +212,7 @@ private:
 	std::vector<int> ownedRegions;
 	std::vector<int> wastelands;
 
-	int timebank;
-	int timePerMove;
+
 	int maxRounds;
 	Parser parser;
 	Phase phase;

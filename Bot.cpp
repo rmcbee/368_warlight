@@ -1,3 +1,4 @@
+
 // stl
 #include <iostream>
 #include <string>
@@ -15,7 +16,7 @@ using namespace std;
 Bot::Bot() :
 		armiesLeft(0), timebank(0), timePerMove(0), maxRounds(0), parser(this), phase(NONE)
 {
-	general = new General(this);
+	 general = new General(this);
 
 }
 
@@ -31,8 +32,10 @@ void Bot::playGame()
 
 void Bot::pickStartingRegion(int time, std::set<int> regions)
 {
+
+
 	// START HERE!
-	std::cout << general->pickStartingRegions(regions) << std::endl;
+	std::cout << startingRegionsreceived.front() << std::endl;
 }
 
 void Bot::placeArmies()
@@ -146,7 +149,7 @@ void Bot::executeAction()
 		return;
 	if (phase == Bot::PICK_STARTING_REGION)
 	{
-//		pickStartingRegion();
+		//pickStartingRegion();
 	}
 	else if (phase == Bot::PLACE_ARMIES)
 	{
@@ -206,20 +209,15 @@ void Bot::resetRegionsOwned()
 	ownedRegions.clear();
 }
 
-std::vector<int> Bot::getNeighbors(int place)
-{
-	return regions[place].neighbors;
-}
-
 /* tested */
-vector<Region> Bot::getNeighbors(Player player, Region place)
+vector<Region*> Bot::getNeighbors(Player player, Region* place)
 {
-	vector<Region> ret;
+	vector<Region*> ret;
 
-	for (int i = 0; i < place.getNbNeighbors(); i++) {
+	for (int i = 0; i < place->getNbNeighbors(); i++) {
 
-		if(regions[place.neighbors[i]].owner == player)
-			ret.push_back(regions[place.neighbors[i]]);
+		if(regions[place->neighbors[i]].owner == player)
+			ret.push_back(&regions[place->neighbors[i]]);
 
 	}
 
@@ -227,14 +225,14 @@ vector<Region> Bot::getNeighbors(Player player, Region place)
 	return ret;
 }
 
-vector<Region> Bot::getOtherNeighbors(Region place)
+vector<Region*> Bot::getOtherNeighbors(Region* place)
 {
-	vector<Region> ret;
+	vector<Region*> ret;
 
-	for (int i = 0; i < place.getNbNeighbors(); i++) {
+	for (int i = 0; i < place->getNbNeighbors(); i++) {
 
-		if(regions[place.neighbors[i]].owner != ME)
-			ret.push_back(regions[place.neighbors[i]]);
+		if(regions[place->neighbors[i]].owner != ME)
+			ret.push_back(&regions[place->neighbors[i]]);
 
 	}
 
@@ -242,51 +240,51 @@ vector<Region> Bot::getOtherNeighbors(Region place)
 	return ret;
 }
 
-vector<Region> Bot::getOwnedRegions()
+vector<Region*> Bot::getOwnedRegions()
 {
-	vector<Region> ret;
+	vector<Region*> ret;
 
 
 	for(int i = 0; i < ownedRegions.size(); i++)
 	{
-		ret.push_back(regions[ownedRegions[i]]);
+		ret.push_back(&regions[ownedRegions[i]]);
 	}
 
 	return ret;
 
 }
 
-vector<Region> Bot::getwastelands()
+vector<Region*> Bot::getwastelands()
 {
-	vector<Region> ret;
+	vector<Region*> ret;
 
 	for(int i = 0; i < wastelands.size(); i++)
 	{
-		ret.push_back(regions[wastelands[i]]);
+		ret.push_back(&regions[wastelands[i]]);
 	}
 
 	return ret;
 
 }
 
-vector<Region> Bot::getstartingRegionsreceived()
+vector<Region*> Bot::getstartingRegionsreceived()
 {
-	vector<Region> ret;
+	vector<Region*> ret;
 
 	for(int i = 0; i < startingRegionsreceived.size(); i++)
 	{
-		ret.push_back(regions[startingRegionsreceived[i]]);
+		ret.push_back(&regions[startingRegionsreceived[i]]);
 	}
 
 	return ret;
 
 }
 
-vector<Region> Bot::getRegionsOwnedBy(Player player) {
-	std::vector<Region> ret;
+vector<Region*> Bot::getRegionsOwnedBy(Player player) {
+	std::vector<Region*> ret;
 	for (Region r: regions) {
 		if (r.getOwner() == player) {
-			ret.push_back(r);
+			ret.push_back(&r);
 		}
 	}
 
@@ -298,12 +296,14 @@ vector<Region> Bot::getAdjacentPlayer(Player player) {
 	vector<Region> ret;
 	set<int> regionSet;
 
+vector<Region*> owned = getOwnedRegions();
 
-	for (Region r: getOwnedRegions()) {
-		for (Region adj: getNeighbors(player, r)) {
+	for (Region* r: owned) {
+		vector<Region*> nb = getNeighbors(player, r);
+		for (Region* adj: nb) {
 
-			if (adj.getOwner() == player) {
-				regionSet.insert(adj.id);
+			if (adj->getOwner() == player) {
+				regionSet.insert(adj->id);
 			}
 			else
 				break;
@@ -334,20 +334,19 @@ int Bot::regionsLeftInSuper(SuperRegion place)
 
 }
 
-vector<Region> Bot::otherNbInSuperRegion(Region location)
+vector<Region*> Bot::otherNbInSuperRegion(Region* location)
 {
-	vector<Region> ret;
+	vector<Region*> ret;
 
-	for (int i = 0; i < location.getNbNeighbors(); i++) {
+	for (int i = 0; i < location->getNbNeighbors(); i++) {
 
-		if(regions[location.neighbors[i]].superRegion == location.superRegion && regions[location.neighbors[i]].owner != ME)
-			ret.push_back(regions[location.neighbors[i]]);
+		if(regions[location->neighbors[i]].superRegion == location->superRegion && regions[location->neighbors[i]].owner != ME)
+			ret.push_back(&regions[location->neighbors[i]]);
 
 	}
 
 	return ret;
 }
-
 
 bool setContainsAll(std::set<int> super, std::set<int> visited) {
 	std::set<int> difference;
@@ -375,12 +374,11 @@ bool setContainsAll(std::set<int> super, std::set<int> visited) {
 	return 0 == difference.size();
 }
 
-
 int Bot::centrality(int region)
 {
 	std::set<int> visited, super;
 	int cent = 0;
-	
+
 	std::vector<int> s = superRegions[regions[region].getSuperRegion()].regions;
 	for (int r : s) {
 		super.insert(r);
@@ -398,5 +396,9 @@ int Bot::centrality(int region)
 	return cent;
 }
 
+std::vector<int> Bot::getNeighbors(int place)
+{
+	return regions[place].neighbors;
+}
 
 

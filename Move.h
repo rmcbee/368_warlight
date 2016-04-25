@@ -5,8 +5,8 @@
 
 struct Move {
 
-    Region from;
-    Region to;
+    Region* from;
+    Region* to;
     int armies;
 };
 

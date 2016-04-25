@@ -2,7 +2,7 @@
 
 java -cp lib/java-json.jar:bin com.theaigames.game.warlight2.Warlight2 example-map.txt ../bot bot 2>err.txt 1>out.txt
 
-cat out.txt | python wl2dot.py result 500
+cat out.txt | python wl2dot.py result 300
 
 firefox result/map_0.html
 
