@@ -11,22 +11,7 @@
     </ADDITIONAL_GENERATION_ENVIRONMENT>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f2ad5d5-5593-4e2b-bae2-76a04e46fdf8" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/368_warlight.zip" afterPath="$PROJECT_DIR$/368_warlight.zip" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bot.o" afterPath="$PROJECT_DIR$/Bot.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/General.o" afterPath="$PROJECT_DIR$/General.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bot" afterPath="$PROJECT_DIR$/bot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bot.cpp" afterPath="$PROJECT_DIR$/Bot.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bot.h" afterPath="$PROJECT_DIR$/Bot.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/General.cpp" afterPath="$PROJECT_DIR$/General.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/General.h" afterPath="$PROJECT_DIR$/General.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Move.h" afterPath="$PROJECT_DIR$/Move.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SuperRegion.h" afterPath="$PROJECT_DIR$/SuperRegion.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vbos-wl2_engine-8b13982d8890/err.txt" afterPath="$PROJECT_DIR$/vbos-wl2_engine-8b13982d8890/err.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vbos-wl2_engine-8b13982d8890/out.txt" afterPath="$PROJECT_DIR$/vbos-wl2_engine-8b13982d8890/out.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vbos-wl2_engine-8b13982d8890/run_simulate" afterPath="$PROJECT_DIR$/vbos-wl2_engine-8b13982d8890/run_simulate" />
-    </list>
+    <list default="true" id="4f2ad5d5-5593-4e2b-bae2-76a04e46fdf8" name="Default" comment="" />
     <ignored path="warlight-starterbot.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -88,8 +73,8 @@
       <file leaf-file-name="Bot.h" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Bot.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3442029">
-              <caret line="39" column="59" selection-start-line="39" selection-start-column="59" selection-end-line="39" selection-end-column="59" />
+            <state vertical-scroll-proportion="0.18156424">
+              <caret line="37" column="4" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -270,7 +255,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44358578" sideWeight="0.5031299" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17928903" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43431222" sideWeight="0.4968701" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3075734" sideWeight="0.4968701" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921174" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -736,8 +721,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Bot.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3442029">
-          <caret line="39" column="59" selection-start-line="39" selection-start-column="59" selection-end-line="39" selection-end-column="59" />
+        <state vertical-scroll-proportion="0.18156424">
+          <caret line="37" column="4" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
           <folding />
         </state>
       </provider>
