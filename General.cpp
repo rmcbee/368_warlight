@@ -78,6 +78,8 @@ void General::getDeployment() {
 	//loop through all of my regions and find the region that is in the super region that is easiest to take
 	for(Region* r: myRegions) {
 
+
+
 		weight = getWeight(r);
 		totalweights += weight;
 
@@ -95,7 +97,7 @@ void General::getDeployment() {
 			rankRegion[lowest] = r;
 			rankWeight[lowest] = weight;
 		}
-		if(weight > 0) break;
+		//if(weight > 0) break;
 
 	}
 
@@ -109,6 +111,9 @@ void General::getDeployment() {
 			continue;
 
 		int weightArmies = (bot->armiesLeft * rankWeight[i]) / totalweights;
+
+		if(weightArmies == 0)
+			continue;
 
 		deployMove << bot->botName << " place_armies " << rankRegion[i]->id << " " << weightArmies;
 
@@ -124,6 +129,7 @@ void General::getDeployment() {
 
 	if(armiesRemaining)
 	{
+
 		int highest = 0;
 
 		for(int i = 1; i < numAddingTo; i++)
@@ -132,15 +138,22 @@ void General::getDeployment() {
 				highest = i;
 		}
 
+
+
 		std::stringstream deployMove;
 
 		deployMove << bot->botName << " place_armies " << rankRegion[highest]->id << " " << bot->armiesLeft;
 
+
+		//cerr << "test DATA: " << highest << " " << rankWeight[highest] << endl;
+
 		//update the number of armies left in the bot class
 		bot->addArmies(rankRegion[highest]->id, bot->armiesLeft);
 
+
 		deployMoves.push_back(deployMove.str());
 	}
+
 	std::cout << join(deployMoves) << endl;
 
 	return;
@@ -167,8 +180,7 @@ void General::sortRankedDeployments(vector<pair<Region*, int> >& deployments)
 
 int General::getWeight(Region* place)
 {
-
-	int weight = 0;
+	int weight = 1;
 
 	//weight based on who is around you
 
@@ -326,16 +338,17 @@ vector<Move> General::generateAttacks()
 
 			if(Nb.empty())
 			{
-
-				/*Move transfer = calculateTransfer(n);
+				Move transfer = calculateTransfer(n);
 
 				//Need to push moves this way to prevent seg fault
 				moves.push_back(Move());
 
 				//you'll push to moves this way. Every other way seems to seg fault
-				moves[counter].to = transfer.from;
-				moves[counter].from = transfer.to;
-				moves[counter++].armies = transfer.armies;	*/
+				moves[counter].to = transfer.to;
+				moves[counter].from = transfer.from;
+				moves[counter++].armies = transfer.armies;
+
+				continue;
 			}
 		}
 
@@ -354,16 +367,10 @@ vector<Move> General::generateAttacks()
 					moves[counter].to = r;
 					moves[counter].from = n;
 					moves[counter++].armies = r->armies * 2;
-					//n->setArmies(n->armies - r->armies * 2);
+					n->setArmies(n->armies - r->armies * 2);
 				}	
 			}
-
-		}
-		
-		for(Region* r: Nb)
-		{
-
-			if(r->owner == NEUTRAL)
+			else if(r->owner == NEUTRAL)
 			{
 				//you'll push to moves this way. Every other way seems to seg fault
 				if(n->armies >= r->armies * 2)
@@ -371,43 +378,70 @@ vector<Move> General::generateAttacks()
 
 					//Need to push moves this way to prevent seg fault
 					moves.push_back(Move());
-				
+
 					moves[counter].to = r;
 					moves[counter].from = n;
 					moves[counter++].armies = r->armies * 2;
-					//n->setArmies(n->armies - r->armies * 2);
-				}	
+					n->setArmies(n->armies - r->armies * 2);
+				}
 			}
-		}
-	}
 
+		}
+		if(n->armies){
+			//Need to push moves this way to prevent seg fault
+			moves.push_back(Move());
+
+			moves[counter].to = Nb[0];
+			moves[counter].from = n;
+			moves[counter++].armies = n->armies;
+			n->setArmies(0);
+		}
+
+
+	}
 
 	return moves;
 }
 
 int General::rateNeed(Region* region){
-    int need = 0;
-    for(Region* adj : bot->getNeighbors(ME, region)){
-        if(adj->getOwner()!= ME) need++;
-    }
-    return need;
+
+	int need = 0;
+
+	vector<Region*> Nb = bot->getOtherNeighbors(region);
+
+	SuperRegion super = bot->superRegions[region->superRegion];
+
+	need += Nb.size();
+    for(Region* region : Nb){
+		need += region->getArmies();
+	}
+	need += super.reward * 2;
+
+	return need;
+
 }
 
 Region* General::getTransferEndDest(){
     std::vector<Region*> owned = bot->getRegionsOwnedBy(ME);
-    Region* destination = NULL;
+	//cerr << "size: " << owned.size() << endl;
+
+	Region* destination = NULL;
     for(Region* possEnd : owned){
-        if(destination == NULL) destination = possEnd;
+		//cerr << "id: " << possEnd->id << endl;
+		if(destination == NULL) destination = possEnd;
         if(rateNeed(possEnd) > rateNeed(destination)){
             destination = possEnd;
         }
     }
+	//cerr << "id: " << destination->id << endl;
+
     return destination;
 }
 
 /** \brief Calculates the next step in the shortest path from start to last.
  *
  * \param start Region* the starting region
+ *
  * \param last Region* the target region
  * \return Region* the region adjacent to start to move to
  *
@@ -421,17 +455,15 @@ Region* General::nextStep(Region* start, Region* last){
     while(numVisited < numRegions){
         Region* region = pathQueue.front();
         pathQueue.pop();
-        std::vector<Region*> neighbors = bot->getNeighbors(ME, region);
-        std::vector<Region*> others = bot->getOtherNeighbors(region);
-        neighbors.insert(neighbors.begin(), others.begin(), others.end());
-        for(Region* neighbor : neighbors){
-            if(visited[neighbor->id]) continue;
-            if(neighbor->id == start->id){
+        std::vector<int> neighbors = bot->getNeighbors(region->id);
+        for(int neighbor : neighbors){
+            if(visited[neighbor]) continue;
+            if(neighbor == start->id){
                 free(visited);
                 return region;
             }
-            visited[neighbor->id] = true;
-            pathQueue.push(neighbor);
+            visited[neighbor] = true;
+            pathQueue.push(&bot->regions[neighbor]);
             numVisited++;
         }
     }
@@ -441,13 +473,31 @@ Region* General::nextStep(Region* start, Region* last){
 
 Move General::calculateTransfer(Region *place) {
 
+
+
 	Move transfer;
 
-	transfer.from = place;
+	bot->getNeighbors(ME, place);
+	vector<Region*> Nb = bot->getNeighbors(ME, place);
 
-	transfer.to = nextStep(place, getTransferEndDest());
+	if(!Nb.empty())
+	{
+		transfer.from = place;
 
-	transfer.armies = transfer.from->getArmies() - 1;
+		//transfer.to = Nb[rand() % Nb.size()];
+
+		transfer.to = nextStep(place, getTransferEndDest());
+
+		cerr << "destination " << transfer.to->id << endl << endl;
+
+		transfer.armies = transfer.from->getArmies() - 1;
+
+	}
+
+
+	/*
+
+	;*/
 
 	return transfer;
 }
@@ -455,7 +505,11 @@ Move General::calculateTransfer(Region *place) {
 void General::sendToEngineAttack(vector<Move> attacks)
 {
 	if(attacks.empty())
+	{
+		std::cout << "No moves" << endl;
 		return;
+	}
+
 
 	std::vector<std::string> attackMoves;
 	//std::stringstream attackMove;

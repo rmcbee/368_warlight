@@ -282,9 +282,9 @@ vector<Region*> Bot::getstartingRegionsreceived()
 
 vector<Region*> Bot::getRegionsOwnedBy(Player player) {
 	std::vector<Region*> ret;
-	for (Region r: regions) {
-		if (r.getOwner() == player) {
-			ret.push_back(&r);
+	for (int i = 0; i <  regions.size(); i++) {
+		if (regions[i].getOwner() == player) {
+			ret.push_back(&regions[i]);
 		}
 	}
 
