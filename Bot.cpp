@@ -32,10 +32,10 @@ void Bot::playGame()
 
 void Bot::pickStartingRegion(int time, std::set<int> regions)
 {
-
+	int region = general->pickStartingRegions(regions);
 
 	// START HERE!
-	std::cout << startingRegionsreceived.front() << std::endl;
+	std::cout << region << std::endl;
 }
 
 void Bot::placeArmies()
